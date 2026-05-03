@@ -11713,6 +11713,32 @@ html {
     font-weight: 900;
 }
 
+.proof-card-layout {
+    display: grid;
+    grid-template-columns: 600px minmax(460px, 1fr);
+    align-items: center;
+    width: 100%;
+}
+
+.prevote-image {
+    width: 600px;
+    height: 400px;
+    object-fit: contain;
+}
+
+@media (max-width: 991.98px) {
+    .proof-card-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .prevote-image {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
 .candidate-section-copy {
     color: #5f6673;
     font-size: 1.05rem;
