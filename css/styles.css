@@ -11692,35 +11692,6 @@ html {
     box-shadow: 0 1.25rem 2.8rem rgba(15, 31, 143, 0.36);
 }
 
-.support-status {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
-    min-width: min(100%, 21rem);
-}
-
-.support-counter {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.55rem 1.1rem;
-    color: #0f1f8f;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(255, 255, 255, 0.78);
-    border-radius: 999px;
-    font-weight: 900;
-    box-shadow: 0 0.8rem 1.8rem rgba(15, 31, 143, 0.18);
-}
-
-.support-counter strong {
-    display: inline-block;
-    min-width: 2.2rem;
-    margin: 0 0.2rem;
-    font-size: 1.35rem;
-    line-height: 1;
-}
-
 .support-message {
     min-height: 1.7rem;
     font-size: 1.05rem;
@@ -11738,12 +11709,17 @@ html {
     top: 43%;
     z-index: 1090;
     width: min(90vw, 48rem);
+    padding: 0.5rem 1.1rem 0.72rem;
     color: #ffffff;
+    background: linear-gradient(135deg, rgba(15, 31, 143, 0.96), rgba(30, 48, 243, 0.94));
+    border: 3px solid rgba(255, 255, 255, 0.96);
+    border-radius: 999px;
     font-size: clamp(2rem, 7vw, 5rem);
     font-weight: 900;
     line-height: 1.08;
     text-align: center;
-    text-shadow: 0 0.35rem 1.4rem rgba(15, 31, 143, 0.58);
+    text-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.42), 0 0 1rem rgba(255, 255, 255, 0.35);
+    box-shadow: 0 1.1rem 3rem rgba(0, 0, 0, 0.32), 0 0 0 0.45rem rgba(30, 48, 243, 0.2);
     pointer-events: none;
     transform: translate(-50%, -50%) scale(0.82);
     animation: support-cheer-pop 1.2s ease forwards;
@@ -12137,4 +12113,6 @@ html {
     left: -2vw;
   }
 }
+
+
 

@@ -6,19 +6,15 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
-const supportApiBase = window.location.protocol === 'file:' ? 'http://localhost:3000' : '';
-
 window.addEventListener('DOMContentLoaded', () => {
     const supportButton = document.getElementById('supportButton');
     const supportButtonLabel = supportButton?.querySelector('.support-button-label');
-    const supportCount = document.getElementById('supportCount');
     const supportMessage = document.getElementById('supportMessage');
 
     if (!supportButton) {
         return;
     }
 
-    let currentSupportCount = Number(supportCount?.textContent || 516);
     let clickCount = 0;
     const supportMessages = [
         '민심이 움직였습니다.',
@@ -28,119 +24,20 @@ window.addEventListener('DOMContentLoaded', () => {
         '오늘도 민심은 유설아 쪽으로 기울었습니다.'
     ];
 
-    loadSupportCount(supportCount).then((count) => {
-        if (typeof count === 'number') {
-            currentSupportCount = count;
-        }
-    });
-
-    supportButton.addEventListener('click', async (event) => {
+    supportButton.addEventListener('click', (event) => {
         event.preventDefault();
+        clickCount += 1;
         supportButton.classList.add('is-supported');
 
-        try {
-            supportButton.setAttribute('aria-busy', 'true');
-            const nextCount = await saveSupportClick();
-
-            if (typeof nextCount === 'number') {
-                animateSupportCount(supportCount, currentSupportCount, nextCount);
-                currentSupportCount = nextCount;
-            } else {
-                currentSupportCount += 1;
-                animateSupportCount(supportCount, currentSupportCount - 1, currentSupportCount);
-            }
-
-            clickCount += 1;
-
-            if (supportButtonLabel) {
-                supportButtonLabel.textContent = clickCount === 1 ? '근본당 입당 완료!' : '지지 추가 완료!';
-            }
-
-            showSupportMessage(supportMessage, supportMessages);
-        } catch {
-            currentSupportCount += 1;
-            animateSupportCount(supportCount, currentSupportCount - 1, currentSupportCount);
-
-            if (supportButtonLabel) {
-                supportButtonLabel.textContent = '응원 접수 완료!';
-            }
-
-            if (supportMessage) {
-                supportMessage.textContent = '서버 연결 없이 화면에서만 응원이 반영되었습니다.';
-            }
-        } finally {
-            supportButton.removeAttribute('aria-busy');
-            showSupportCheer();
-            launchConfetti();
+        if (supportButtonLabel) {
+            supportButtonLabel.textContent = clickCount === 1 ? '근본당 입당 완료!' : '이미 근본당원입니다!';
         }
+
+        showSupportMessage(supportMessage, supportMessages);
+        showSupportCheer();
+        launchConfetti();
     });
 });
-
-async function loadSupportCount(element) {
-    try {
-        const response = await fetch(supportApiBase + '/api/support', { cache: 'no-store' });
-
-        if (!response.ok) {
-            return null;
-        }
-
-        const data = await response.json();
-        const count = Number(data.count);
-
-        if (!Number.isFinite(count)) {
-            return null;
-        }
-
-        if (element) {
-            element.textContent = count.toLocaleString('ko-KR');
-        }
-
-        return count;
-    } catch {
-        return null;
-    }
-}
-
-async function saveSupportClick() {
-    const response = await fetch(supportApiBase + '/api/support', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json'
-        }
-    });
-
-    if (!response.ok) {
-        return null;
-    }
-
-    const data = await response.json();
-    const count = Number(data.count);
-
-    return Number.isFinite(count) ? count : null;
-}
-
-function animateSupportCount(element, startValue, targetValue) {
-    if (!element) {
-        return;
-    }
-
-    const duration = 520;
-    const startTime = performance.now();
-
-    function update(now) {
-        const progress = Math.min((now - startTime) / duration, 1);
-        const easedProgress = 1 - Math.pow(1 - progress, 3);
-        const value = Math.round(startValue + (targetValue - startValue) * easedProgress);
-
-        element.textContent = value.toLocaleString('ko-KR');
-
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        }
-    }
-
-    requestAnimationFrame(update);
-}
 
 function showSupportMessage(element, messages) {
     if (!element) {
@@ -243,5 +140,3 @@ function launchConfetti() {
 
     requestAnimationFrame(animate);
 }
-
-
