@@ -54,12 +54,20 @@ async function incrementSupportCount() {
 function sendJson(response, statusCode, body) {
     response.writeHead(statusCode, {
         'Content-Type': 'application/json; charset=utf-8',
-        'Cache-Control': 'no-store'
+        'Cache-Control': 'no-store',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Accept, Content-Type'
     });
     response.end(JSON.stringify(body));
 }
 
 async function handleApi(request, response) {
+    if (request.url === '/api/support' && request.method === 'OPTIONS') {
+        sendJson(response, 204, {});
+        return true;
+    }
+
     if (request.url === '/api/support' && request.method === 'GET') {
         const count = await readSupportCount();
         sendJson(response, 200, { count });
@@ -117,4 +125,5 @@ const server = http.createServer(async (request, response) => {
 server.listen(port, () => {
     console.log(`VCompany election site running at http://localhost:${port}`);
 });
+
 
