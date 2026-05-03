@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -242,8 +242,14 @@
                     <h2 class="display-4 fw-bolder mb-4">당신의 소중한 한표 유설아에게 행사해 주십시오!</h2>
                     <a class="btn support-button btn-lg px-5 py-3 fs-6 fw-bolder" href="#support" id="supportButton">
                         <i class="bi bi-check2-circle"></i>
-                        지지하기!
+                        <span class="support-button-label">지지하기!</span>
                     </a>
+                    <div class="support-status mt-4" aria-live="polite">
+                        <div class="support-counter">
+                            현재 지지자 <strong id="supportCount">516</strong>명
+                        </div>
+                        <p class="support-message mb-0" id="supportMessage">당신의 한 표가 근본을 완성합니다.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -327,3 +333,4 @@
     <script src="js/scripts.js"></script>
 </body>
 </html>
+
