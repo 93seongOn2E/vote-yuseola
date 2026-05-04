@@ -12411,6 +12411,41 @@ html {
     margin: 0;
 }
 
+.candidate-history-footer {
+    margin-top: 1.15rem;
+    padding: 1.35rem 1.5rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #064e3b, #059669);
+    border-radius: 0.85rem;
+    box-shadow: 0 0.9rem 2rem rgba(6, 78, 59, 0.18);
+}
+
+.candidate-history-footer span {
+    display: inline-flex;
+    margin-bottom: 0.45rem;
+    padding: 0.18rem 0.55rem;
+    color: #064e3b;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.candidate-history-footer strong {
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 900;
+    line-height: 1.35;
+}
+
+.candidate-history-footer p {
+    margin: 0.55rem 0 0;
+    color: rgba(255, 255, 255, 0.86);
+    font-weight: 700;
+    line-height: 1.55;
+}
+
 @media (max-width: 767.98px) {
     .candidate-history {
         padding: 1.25rem;
@@ -12427,6 +12462,14 @@ html {
 
     .history-grid {
         grid-template-columns: 1fr;
+    }
+
+    .candidate-history-footer {
+        padding: 1.1rem;
+    }
+
+    .candidate-history-footer strong {
+        font-size: 1.08rem;
     }
 }
 
