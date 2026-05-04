@@ -19,6 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     let clickCount = 0;
+    let lastSupportClickTime = 0;
     const supportSounds = [
         'assets/dalcom.mp3',
         'assets/goso.mp3',
@@ -41,6 +42,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
     supportButton.addEventListener('click', (event) => {
         event.preventDefault();
+
+        const now = performance.now();
+
+        if (now - lastSupportClickTime < 1000) {
+            return;
+        }
+
+        lastSupportClickTime = now;
         clickCount += 1;
         supportButton.classList.add('is-supported');
 
@@ -214,7 +223,7 @@ function launchConfetti() {
 
     for (let index = 0; index < pieceCount; index += 1) {
         const angle = Math.random() * Math.PI * 2;
-        const speed = 4 + Math.random() * 8;
+        const speed = 4 + Math.random() * 7;
 
         pieces.push({
             x: window.innerWidth / 2,
@@ -247,9 +256,10 @@ function launchConfetti() {
             context.fillStyle = piece.color;
 
             if (piece.text) {
-                context.font = `900 ${piece.size * 1.8}px sans-serif`;
+                context.font = `900 ${piece.size * 2.05}px "Malgun Gothic", "Apple SD Gothic Neo", sans-serif`;
                 context.textAlign = 'center';
                 context.textBaseline = 'middle';
+                context.fillStyle = '#ffffff';
                 context.fillText(piece.text, 0, 0);
             } else {
                 context.fillRect(-piece.size / 2, -piece.size / 2, piece.size, piece.size * 0.55);
@@ -269,6 +279,12 @@ function launchConfetti() {
 
     requestAnimationFrame(animate);
 }
+
+
+
+
+
+
 
 
 
