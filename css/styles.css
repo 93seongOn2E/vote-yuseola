@@ -12099,7 +12099,19 @@ html {
     }
 
     .campaign-poster-stage {
-        min-height: 18rem;
+        aspect-ratio: auto;
+        min-height: 0;
+        padding: 0.75rem;
+    }
+
+    .campaign-poster-open {
+        height: auto;
+    }
+
+    .campaign-poster-image {
+        width: 100%;
+        max-height: none;
+        height: auto;
     }
 
     .campaign-song-placeholder {
