@@ -194,7 +194,7 @@ function launchConfetti() {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
     const colors = ['#064e3b', '#047857', '#059669', '#10b981', '#34d399', '#ffffff', '#f7d154'];
-    const textPieces = ['D', '유설아', '근본', '키키'];
+    const textPieces = ['D', '유설아', '근본', '키키','🐰'];
     const pieces = [];
     const duration = 2100;
     const startTime = performance.now();
