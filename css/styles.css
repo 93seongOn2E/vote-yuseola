@@ -12031,6 +12031,185 @@ html {
     }
 }
 
+.supporters-section {
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.supporters-marquee {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 0.4rem 0 0.2rem;
+}
+
+.supporters-marquee::before,
+.supporters-marquee::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    width: min(12vw, 8rem);
+    pointer-events: none;
+}
+
+.supporters-marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0));
+}
+
+.supporters-marquee::after {
+    right: 0;
+    background: linear-gradient(270deg, #ffffff, rgba(255, 255, 255, 0));
+}
+
+.supporters-track {
+    display: flex;
+    width: max-content;
+    gap: 1.1rem;
+    animation-duration: 42s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.supporters-marquee.is-scroll-left .supporters-track {
+    animation-name: supporters-scroll-left;
+}
+
+.supporters-marquee.is-scroll-right .supporters-track {
+    animation-name: supporters-scroll-right;
+}
+
+.supporters-track:hover {
+    animation-play-state: paused;
+}
+
+.supporters-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    color: #064e3b;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(5, 150, 105, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 0.8rem 1.8rem rgba(15, 23, 42, 0.14);
+    transform: translateY(-50%);
+    transition: color 0.16s ease, background-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.supporters-arrow:hover,
+.supporters-arrow:focus {
+    color: #ffffff;
+    background: #059669;
+    box-shadow: 0 1rem 2.2rem rgba(5, 150, 105, 0.24);
+    transform: translateY(-50%) scale(1.06);
+}
+
+.supporters-arrow-left {
+    left: clamp(0.75rem, 3vw, 2rem);
+}
+
+.supporters-arrow-right {
+    right: clamp(0.75rem, 3vw, 2rem);
+}
+
+.supporter-card {
+    display: grid;
+    grid-template-rows: 8.4rem auto;
+    gap: 0.75rem;
+    width: 10.4rem;
+    flex: 0 0 auto;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.16s ease;
+}
+
+.supporter-card:hover,
+.supporter-card:focus {
+    transform: translateY(-0.2rem);
+}
+
+.supporter-card:focus-visible {
+    outline: 0.18rem solid rgba(5, 150, 105, 0.5);
+    outline-offset: 0.25rem;
+    border-radius: 1rem;
+}
+
+.supporter-card img {
+    width: 8.4rem;
+    height: 8.4rem;
+    justify-self: center;
+    object-fit: cover;
+    background: #ecfdf5;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0.75rem 1.6rem rgba(15, 23, 42, 0.12);
+}
+
+.supporter-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.28rem;
+    min-height: 3.65rem;
+    padding: 0.55rem 0.65rem 0.62rem;
+    background: #ffffff;
+    border: 1px solid #e5e8ef;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.5rem 1.2rem rgba(15, 23, 42, 0.08);
+}
+
+.supporter-info span {
+    display: inline-flex;
+    max-width: 100%;
+    padding: 0.18rem 0.52rem;
+    overflow: hidden;
+    color: #059669;
+    background: #ecfdf5;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.supporter-info strong {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    color: #202735;
+    font-size: 0.98rem;
+    font-weight: 900;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@keyframes supporters-scroll-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes supporters-scroll-right {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
 .proof-lead {
     color: #059669;
     font-size: 1.08rem;
@@ -12116,6 +12295,34 @@ html {
 
     .campaign-song-placeholder {
         align-items: flex-start;
+    }
+
+    .supporters-track {
+        gap: 0.75rem;
+        animation-duration: 34s;
+    }
+
+    .supporter-card {
+        grid-template-rows: 6.75rem auto;
+        width: 8.7rem;
+    }
+
+    .supporter-card img {
+        width: 6.75rem;
+        height: 6.75rem;
+    }
+
+    .supporter-info {
+        min-height: 3.25rem;
+        padding: 0.48rem 0.55rem 0.55rem;
+    }
+
+    .supporter-info span {
+        font-size: 0.66rem;
+    }
+
+    .supporter-info strong {
+        font-size: 0.88rem;
     }
 }
 

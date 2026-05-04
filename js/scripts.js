@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const supportMessage = document.getElementById('supportMessage');
 
     setupPosterPreview();
+    setupSupportersMarquee();
 
     if (!supportButton) {
         return;
@@ -68,6 +69,31 @@ function playSupportSound(sounds, clickCount) {
 
     sound.play().catch(() => {
         // Browsers can reject playback if the click gesture is interrupted.
+    });
+}
+
+function setupSupportersMarquee() {
+    const marquee = document.querySelector('.supporters-marquee');
+    const directionButtons = document.querySelectorAll('[data-supporters-direction]');
+
+    if (!marquee || !directionButtons.length) {
+        return;
+    }
+
+    directionButtons.forEach((button) => {
+        button.addEventListener('mouseenter', () => {
+            const direction = button.getAttribute('data-supporters-direction');
+
+            marquee.classList.toggle('is-scroll-left', direction === 'left');
+            marquee.classList.toggle('is-scroll-right', direction !== 'left');
+        });
+
+        button.addEventListener('focus', () => {
+            const direction = button.getAttribute('data-supporters-direction');
+
+            marquee.classList.toggle('is-scroll-left', direction === 'left');
+            marquee.classList.toggle('is-scroll-right', direction !== 'left');
+        });
     });
 }
 
