@@ -81,7 +81,7 @@ function setupSupportersMarquee() {
         return;
     }
 
-    let direction = marquee.classList.contains('is-scroll-left') ? -1 : 1;
+    let direction = marquee.classList.contains('is-scroll-left') ? 1 : -1;
     let offset = 0;
     let halfWidth = 0;
     let lastTime = performance.now();
@@ -125,7 +125,7 @@ function setupSupportersMarquee() {
 
             marquee.classList.toggle('is-scroll-left', nextDirection === 'left');
             marquee.classList.toggle('is-scroll-right', nextDirection !== 'left');
-            direction = nextDirection === 'left' ? -1 : 1;
+            direction = nextDirection === 'left' ? 1 : -1;
         };
 
         button.addEventListener('mouseenter', changeDirection);
