@@ -12050,14 +12050,14 @@ html {
 }
 
 .proof-card {
-    max-width: 980px;
+    max-width: 1120px;
     margin-right: auto;
     margin-left: auto;
 }
 
 .proof-card-layout {
     display: grid;
-    grid-template-columns: 500px minmax(360px, 1fr);
+    grid-template-columns: 500px minmax(500px, 1fr);
     align-items: center;
     width: 100%;
 }
