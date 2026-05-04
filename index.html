@@ -27,18 +27,20 @@
             <div class="collapse navbar-collapse" id="campaignNavbar">
                 <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#top">홈</a></li>
-                    <!--<li class="nav-item"><a class="nav-link" href="#reason">선택 이유</a></li>-->
+                    <li class="nav-item"><a class="nav-link" href="#reason">선택근거</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#support">지지하기</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#media">미디어</a></li>
                     <li class="nav-item"><a class="nav-link" href="#history">후보 이력</a></li>
                 </ul>
                 <div class="campaign-nav-links">
                     <a href="https://v-company.xyz/" target="_blank" rel="noopener noreferrer" aria-label="팬사이트" title="팬사이트">
-                        <img src="https://i.namu.wiki/i/AxjxHiqlQZSmaqgvke9FBR4yEKo6SZ82kcHVs9FjhMzTQAs8ukhl1UnO2IDSo5S8nYXLwqOP-phP2X5rt2qS2uUeVKF5MHkv-6VvKnykyaaW7aj72_4kjjApmnZ9a6zbiee-9DggTlLjxYKiFeXJLA.webp" alt="" />
+                        <img src="assets/vc-logo.png" alt="" />
                     </a>
                     <a href="https://www.sooplive.com/station/yeveee" target="_blank" rel="noopener noreferrer" aria-label="SOOP 채널" title="SOOP 채널">
-                        <img src="https://i.namu.wiki/i/YVXnAwj_HGC06djM1vry7hHxJJqTV0aTXgdwlBtvqYAXPffSMXLJbghEy_SIJefzbO2Uikhw5zVEdOMn10K6IQ.svg" alt="" />
+                        <img class="campaign-nav-logo-lg" src="assets/soop-logo.png" alt="" />
                     </a>
                     <a href="https://cafe.naver.com/yoonanana" target="_blank" rel="noopener noreferrer" aria-label="네이버 카페" title="네이버 카페">
-                        <img src="https://i.namu.wiki/i/E0RKZVf8eGTmc8kb8VNIFHoZlXa2OVULD_2z_WeqUGnoSH9VS955uuekD0xTwb3gB4VOTjcvI-b3zExpFZxbhZua37BThHH3kJqMYKAgoRWM5cZIBHKs-HFFqDb43Kyinl5WHFw35jxgKmwZZ9y1Gw.svg" alt="" />
+                        <img class="campaign-nav-logo-lg" src="assets/naver-cafe-logo.png" alt="" />
                     </a>
                 </div>
             </div>
@@ -201,16 +203,16 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-12">
                         <!-- Project Card 1-->
-                        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                        <div class="card proof-card overflow-hidden shadow rounded-4 border-0 mb-5">
                             <div class="card-body p-0">
                                 <div class="proof-card-layout">
                                     <img class="img-fluid prevote-image" src="assets/prevote.png" alt="..." />
-                                    <div class="p-5">
+                                    <div class="proof-card-content p-5">
                                         <h2 class="fw-bolder">시청자가 원하는 진정한 2인자</h2>
                                         <p class="proof-lead">민심은 이미 답했습니다.</p>
                                         <p><strong>감스트</strong> 팬카페에서 진행된 <strong>버컴퍼니 2인자 선거 모의여론조사</strong>에서 유설아 후보는 당당히 1위를 기록했습니다.</p>
                                         <p>다른 후보들과 달리 과한 투표 독려 없이 만들어낸 결과이기에, 이 1위는 더욱 의미가 큽니다.</p>
-                                        <p class="proof-score">516표, 46.5%</p>
+                                        <p class="proof-score">578표, 41.6%</p>
                                         <p class="mb-0">
                                             억지로 모은 표가 아니라 시청자들이 직접 선택한 표. <br />
                                             진정한 2인자는 이미 민심으로 증명됐습니다.
@@ -248,10 +250,113 @@
                 </div>
             </div>
         </section>
+        <section class="campaign-media-section py-5" id="media">
+            <div class="container px-5 my-5">
+                <div class="campaign-media">
+                    <div class="text-center mb-4">
+                        <h3 class="campaign-media-title fw-bolder mb-2">미디어</h3>
+                        <p class="campaign-media-copy mb-0">선거 포스터와 선거송을 한곳에서 확인하세요.</p>
+                    </div>
+                    <div class="campaign-media-layout">
+                        <section class="campaign-media-panel campaign-poster-panel" aria-labelledby="posterSliderTitle">
+                            <div class="campaign-media-panel-header">
+                                <span class="campaign-media-kicker">Poster</span>
+                                <h4 class="fw-bolder mb-0" id="posterSliderTitle">선거 포스터</h4>
+                            </div>
+                            <div id="posterCarousel" class="carousel slide campaign-poster-slider" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#posterCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="포스터 1"></button>
+                                    <button type="button" data-bs-target="#posterCarousel" data-bs-slide-to="1" aria-label="포스터 2"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="campaign-poster-stage">
+                                            <button class="campaign-poster-open" type="button" data-poster-src="assets/poster_1.png" data-poster-alt="유설아 선거 포스터 1">
+                                                <img class="campaign-poster-image" src="assets/poster_1.png" alt="유설아 선거 포스터 1" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="carousel-item">
+                                        <div class="campaign-poster-stage">
+                                            <button class="campaign-poster-open" type="button" data-poster-src="assets/poster_2.png" data-poster-alt="유설아 선거 포스터 2">
+                                                <img class="campaign-poster-image" src="assets/poster_2.png" alt="유설아 선거 포스터 2" />
+                                            </button>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#posterCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">이전</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#posterCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">다음</span>
+                                </button>
+                            </div>
+                        </section>
+                        <div class="campaign-media-sidebar">
+                            <section class="campaign-media-panel campaign-song-panel" aria-labelledby="campaignSongTitle">
+                                <div class="campaign-media-panel-header">
+                                    <span class="campaign-media-kicker">Song</span>
+                                    <h4 class="fw-bolder mb-0" id="campaignSongTitle">선거송</h4>
+                                </div>
+                                <div class="campaign-song-placeholder">
+                                    <i class="bi bi-music-note-beamed"></i>
+                                    <div>
+                                        <strong>선거송 준비중</strong>
+                                        <!-- <p class="mb-0">🤍 선거송/선거포스터 올리는곳 💚</p> -->
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="campaign-media-panel campaign-notice-panel" aria-labelledby="campaignNoticeTitle">
+                                <div class="campaign-media-panel-header">
+                                    <span class="campaign-media-kicker">Notice</span>
+                                    <h4 class="fw-bolder mb-0" id="campaignNoticeTitle">후보자 공지사항</h4>
+                                </div>
+                                <ul class="campaign-notice-list">
+                                    <li>
+                                        <a href="https://www.sooplive.com/station/yeveee/post/194662209" target="_blank" aria-label="유설아 2인자 선거 관련 공지">
+                                            <span>유설아 2인자 선거 관련 공지</span>
+                                            <i class="bi bi-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="https://cafe.naver.com/f-e/cafes/31396984/articles/9065?menuid=40&referrerAllArticles=false" target="_blank" aria-label="선거송/선거포스터 이벤트 진행중">
+                                            <span>🤍선거송/선거포스터 이벤트 진행중💚</span>
+                                            <i class="bi bi-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                    <!--
+                                    <li>
+                                        <a href="#" aria-label="후보자 공지사항 3">
+                                            <span>후보자 공지사항 3</span>
+                                            <i class="bi bi-chevron-right"></i>
+                                        </a>
+                                    </li> -->
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="modal fade poster-preview-modal" id="posterPreviewModal" tabindex="-1" aria-labelledby="posterPreviewTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bolder" id="posterPreviewTitle">선거 포스터</h5>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="닫기"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="poster-preview-image" id="posterPreviewImage" src="" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
         <section class="bg-light py-5" id="history">
             <div class="container px-5 my-5">
                 <div class="text-center mb-5">
-                    <h1 class="display-5 fw-bolder mb-0 candidate-history-title">🐰 후보자 증명 이력🐰</h1>
+                    <h1 class="display-5 fw-bolder mb-0 candidate-history-title">🐰 후보자 이력🐰</h1>
                     <p class="candidate-section-copy mt-3 mb-0">말보다 기록으로 증명하는 후보자의 핵심 경력</p>
                 </div>
                 <div class="row gx-5 justify-content-center">
@@ -277,12 +382,12 @@
                                     <div class="history-item history-tone-2">
                                         <div class="history-meta">마병대 1</div>
                                         <div class="history-title">특별소대 소대장</div>
-                                        <p>약 6,000명의 시청자를 유지하며 책임감과 리더십을 증명.</p>
+                                        <p>약 6,000명의 시청자를 유지하며 책임감과 리더십을 증명</p>
                                     </div>
                                     <div class="history-item history-tone-2">
                                         <div class="history-meta">마병대 2</div>
                                         <div class="history-title">특별소대 광탈</div>
-                                        <p>실패도 숨기지 않는 솔직한 검증 이력.</p>
+                                        <p>실패도 숨기지 않는 솔직한 이력</p>
                                     </div>
                                     <div class="history-item history-tone-3">
                                         <div class="history-meta">버컴퍼니</div>
@@ -297,12 +402,12 @@
                                     <div class="history-item history-tone-4">
                                         <div class="history-meta">공룡서버</div>
                                         <div class="history-title">초원부족</div>
-                                        <p>짧지만 서버 안에서도 확실했던 존재감.</p>
+                                        <p>짧지만 서버 안에서도 확실했던 존재감</p>
                                     </div>
                                     <div class="history-item history-tone-4">
                                         <div class="history-meta">돌발서버</div>
                                         <div class="history-title">감길당</div>
-                                        <p>새언니 곁에서 검증된 실전형 경력.</p>
+                                        <p>새언니 곁에서 검증된 실전형 경력</p>
                                     </div>
                                 </div>
                             </div>

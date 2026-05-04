@@ -11649,13 +11649,10 @@ html {
     max-height: 1.25rem;
 }
 
-.campaign-nav-links a:hover,
-.campaign-nav-links a:focus {
-    color: #fff;
-    background: #059669;
-    border-color: #059669;
+.campaign-nav-links img.campaign-nav-logo-lg {
+    max-width: 1.6rem;
+    max-height: 1.6rem;
 }
-
 
 #support h2 {
     text-shadow: 0 0.16rem 0.38rem rgba(6, 78, 59, 0.28);
@@ -11742,6 +11739,236 @@ html {
     animation: support-message-pop 0.45s ease;
 }
 
+.campaign-media-section {
+    background: #f8fafc;
+}
+
+.campaign-media {
+    padding: 2rem;
+    color: #202735;
+    background: #ffffff;
+    border: 1px solid #e5e8ef;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 2.4rem rgba(15, 23, 42, 0.08);
+}
+
+.campaign-media-title {
+    color: #064e3b;
+    letter-spacing: 0;
+}
+
+.campaign-media-copy {
+    color: #5f6673;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.campaign-media-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+.campaign-media-panel {
+    min-width: 0;
+    padding: 1.25rem;
+    background: #ffffff;
+    border: 1px solid #e5e8ef;
+    border-radius: 0.85rem;
+}
+
+.campaign-media-panel-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.campaign-media-kicker {
+    color: #059669;
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.campaign-media-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    min-width: 0;
+}
+
+.campaign-poster-slider {
+    overflow: hidden;
+    background: #ecfdf5;
+    border-radius: 0.75rem;
+}
+
+.campaign-poster-slider .carousel-indicators {
+    margin-bottom: 0.75rem;
+}
+
+.campaign-poster-slider .carousel-indicators [data-bs-target] {
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+}
+
+.campaign-poster-slider .carousel-control-prev,
+.campaign-poster-slider .carousel-control-next {
+    width: 12%;
+}
+
+.campaign-poster-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 10;
+    min-height: 28rem;
+    padding: 1rem;
+    background: #ecfdf5;
+}
+
+.campaign-poster-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    cursor: zoom-in;
+}
+
+.campaign-poster-open:focus-visible {
+    outline: 0.18rem solid rgba(5, 150, 105, 0.55);
+    outline-offset: 0.2rem;
+}
+
+.campaign-poster-image {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.poster-preview-modal .modal-content {
+    background: transparent;
+    border: 0;
+}
+
+.poster-preview-modal .modal-header {
+    color: #ffffff;
+    background: rgba(6, 78, 59, 0.92);
+    border-bottom: 0;
+    border-radius: 0.75rem 0.75rem 0 0;
+}
+
+.poster-preview-modal .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+    opacity: 0.95;
+}
+
+.poster-preview-modal .modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 0 0 0.75rem 0.75rem;
+}
+
+.poster-preview-image {
+    display: block;
+    max-width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+}
+
+.campaign-song-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.campaign-song-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    min-height: 12rem;
+    padding: 1.25rem;
+    color: #064e3b;
+    background: #ecfdf5;
+    border: 1px dashed rgba(5, 150, 105, 0.42);
+    border-radius: 0.75rem;
+}
+
+.campaign-song-placeholder i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 3.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    color: #ffffff;
+    background: #059669;
+    border-radius: 50%;
+    font-size: 1.7rem;
+}
+
+.campaign-song-placeholder strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.campaign-song-placeholder p {
+    color: #4b5563;
+    font-weight: 700;
+}
+
+.campaign-notice-list {
+    display: grid;
+    gap: 0.7rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.campaign-notice-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    padding: 0.85rem 0.95rem;
+    color: #202735;
+    background: #f8fafc;
+    border: 1px solid #e5e8ef;
+    border-radius: 0.65rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: color 0.16s ease, border-color 0.16s ease, background-color 0.16s ease, transform 0.16s ease;
+}
+
+.campaign-notice-list a:hover,
+.campaign-notice-list a:focus {
+    color: #064e3b;
+    background: #ecfdf5;
+    border-color: rgba(5, 150, 105, 0.36);
+    transform: translateX(0.2rem);
+}
+
+.campaign-notice-list i {
+    flex: 0 0 auto;
+    color: #059669;
+    font-size: 0.9rem;
+}
+
 .support-cheer {
     position: fixed;
     left: 50%;
@@ -11822,29 +12049,61 @@ html {
     font-weight: 900;
 }
 
+.proof-card {
+    max-width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .proof-card-layout {
     display: grid;
-    grid-template-columns: 600px minmax(460px, 1fr);
+    grid-template-columns: 500px minmax(360px, 1fr);
     align-items: center;
     width: 100%;
 }
 
 .prevote-image {
-    width: 600px;
-    height: 400px;
+    width: 500px;
+    height: auto;
     object-fit: contain;
 }
 
 @media (max-width: 991.98px) {
+    .campaign-media-layout {
+        grid-template-columns: 1fr;
+    }
+
     .proof-card-layout {
         grid-template-columns: 1fr;
     }
 
     .prevote-image {
         width: 100%;
-        max-width: 600px;
+        max-width: 500px;
         height: auto;
         margin: 0 auto;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .campaign-media {
+        padding: 1.25rem;
+    }
+
+    .campaign-media-panel {
+        padding: 1rem;
+    }
+
+    .proof-card-content {
+        padding: 1.5rem !important;
+    }
+
+    .campaign-poster-stage {
+        min-height: 18rem;
+    }
+
+    .campaign-song-placeholder {
+        align-items: flex-start;
     }
 }
 

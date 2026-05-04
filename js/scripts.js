@@ -11,6 +11,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const supportButtonLabel = supportButton?.querySelector('.support-button-label');
     const supportMessage = document.getElementById('supportMessage');
 
+    setupPosterPreview();
+
     if (!supportButton) {
         return;
     }
@@ -38,6 +40,38 @@ window.addEventListener('DOMContentLoaded', () => {
         launchConfetti();
     });
 });
+
+function setupPosterPreview() {
+    const posterButtons = document.querySelectorAll('.campaign-poster-open');
+    const previewModalElement = document.getElementById('posterPreviewModal');
+    const previewImage = document.getElementById('posterPreviewImage');
+
+    if (!posterButtons.length || !previewModalElement || !previewImage || !window.bootstrap) {
+        return;
+    }
+
+    const previewModal = new bootstrap.Modal(previewModalElement);
+
+    posterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const posterSrc = button.getAttribute('data-poster-src');
+            const posterAlt = button.getAttribute('data-poster-alt') || '선거 포스터';
+
+            if (!posterSrc) {
+                return;
+            }
+
+            previewImage.src = posterSrc;
+            previewImage.alt = posterAlt;
+            previewModal.show();
+        });
+    });
+
+    previewModalElement.addEventListener('hidden.bs.modal', () => {
+        previewImage.src = '';
+        previewImage.alt = '';
+    });
+}
 
 function showSupportMessage(element, messages) {
     if (!element) {
