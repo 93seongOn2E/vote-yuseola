@@ -185,7 +185,7 @@ function showSupportCheer() {
     const cheer = document.createElement('div');
 
     cheer.className = 'support-cheer';
-    cheer.textContent = '기호 4번 유설아!';
+    cheer.textContent = '기호 D 유설아!';
     document.body.appendChild(cheer);
     cheer.addEventListener('animationend', () => cheer.remove(), { once: true });
 }
@@ -194,7 +194,7 @@ function launchConfetti() {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
     const colors = ['#064e3b', '#047857', '#059669', '#10b981', '#34d399', '#ffffff', '#f7d154'];
-    const textPieces = ['4', '유설아', '근본','키키'];
+    const textPieces = ['D', '유설아', '근본', '키키'];
     const pieces = [];
     const duration = 2100;
     const startTime = performance.now();
@@ -269,5 +269,6 @@ function launchConfetti() {
 
     requestAnimationFrame(animate);
 }
+
 
 
