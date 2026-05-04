@@ -12068,21 +12068,7 @@ html {
     display: flex;
     width: max-content;
     gap: 1.1rem;
-    animation-duration: 42s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-.supporters-marquee.is-scroll-left .supporters-track {
-    animation-name: supporters-scroll-left;
-}
-
-.supporters-marquee.is-scroll-right .supporters-track {
-    animation-name: supporters-scroll-right;
-}
-
-.supporters-track:hover {
-    animation-play-state: paused;
+    will-change: transform;
 }
 
 .supporters-arrow {
@@ -12192,24 +12178,6 @@ html {
     white-space: nowrap;
 }
 
-@keyframes supporters-scroll-left {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-@keyframes supporters-scroll-right {
-    from {
-        transform: translateX(-50%);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
 .proof-lead {
     color: #059669;
     font-size: 1.08rem;
@@ -12299,7 +12267,6 @@ html {
 
     .supporters-track {
         gap: 0.75rem;
-        animation-duration: 34s;
     }
 
     .supporter-card {

@@ -74,27 +74,66 @@ function playSupportSound(sounds, clickCount) {
 
 function setupSupportersMarquee() {
     const marquee = document.querySelector('.supporters-marquee');
+    const track = marquee?.querySelector('.supporters-track');
     const directionButtons = document.querySelectorAll('[data-supporters-direction]');
 
-    if (!marquee || !directionButtons.length) {
+    if (!marquee || !track || !directionButtons.length) {
         return;
     }
 
-    directionButtons.forEach((button) => {
-        button.addEventListener('mouseenter', () => {
-            const direction = button.getAttribute('data-supporters-direction');
+    let direction = marquee.classList.contains('is-scroll-left') ? -1 : 1;
+    let offset = 0;
+    let halfWidth = 0;
+    let lastTime = performance.now();
+    let isPaused = false;
+    const pixelsPerSecond = 42;
 
-            marquee.classList.toggle('is-scroll-left', direction === 'left');
-            marquee.classList.toggle('is-scroll-right', direction !== 'left');
-        });
+    function measureTrack() {
+        halfWidth = track.scrollWidth / 2;
+        offset = halfWidth ? ((offset % halfWidth) + halfWidth) % halfWidth : 0;
+    }
 
-        button.addEventListener('focus', () => {
-            const direction = button.getAttribute('data-supporters-direction');
+    function animate(currentTime) {
+        const elapsed = (currentTime - lastTime) / 1000;
+        lastTime = currentTime;
 
-            marquee.classList.toggle('is-scroll-left', direction === 'left');
-            marquee.classList.toggle('is-scroll-right', direction !== 'left');
-        });
+        if (!isPaused && halfWidth > 0) {
+            offset = (offset + direction * pixelsPerSecond * elapsed) % halfWidth;
+
+            if (offset < 0) {
+                offset += halfWidth;
+            }
+
+            track.style.transform = `translateX(${-halfWidth + offset}px)`;
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    measureTrack();
+    window.addEventListener('resize', measureTrack);
+    track.addEventListener('mouseenter', () => {
+        isPaused = true;
     });
+    track.addEventListener('mouseleave', () => {
+        isPaused = false;
+    });
+
+    directionButtons.forEach((button) => {
+        const changeDirection = () => {
+            const nextDirection = button.getAttribute('data-supporters-direction');
+
+            marquee.classList.toggle('is-scroll-left', nextDirection === 'left');
+            marquee.classList.toggle('is-scroll-right', nextDirection !== 'left');
+            direction = nextDirection === 'left' ? -1 : 1;
+        };
+
+        button.addEventListener('mouseenter', changeDirection);
+        button.addEventListener('focus', changeDirection);
+        button.addEventListener('click', changeDirection);
+    });
+
+    requestAnimationFrame(animate);
 }
 
 function setupPosterPreview() {
