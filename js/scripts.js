@@ -18,6 +18,18 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     let clickCount = 0;
+    const supportSounds = [
+        'assets/dalcom.mp3',
+        'assets/goso.mp3',
+        'assets/cocoa.mp3',
+        'assets/daldal.mp3',
+        'assets/basak.mp3',
+        'assets/heangbok.mp3'
+    ].map((source) => {
+        const audio = new Audio(source);
+        audio.preload = 'auto';
+        return audio;
+    });
     const supportMessages = [
         '민심이 움직였습니다.',
         '근본당에 합류했습니다.',
@@ -37,9 +49,27 @@ window.addEventListener('DOMContentLoaded', () => {
 
         showSupportMessage(supportMessage, supportMessages);
         showSupportCheer();
+        playSupportSound(supportSounds, clickCount);
         launchConfetti();
     });
 });
+
+function playSupportSound(sounds, clickCount) {
+    if (!sounds.length) {
+        return;
+    }
+
+    const sound = sounds[(clickCount - 1) % sounds.length];
+
+    sounds.forEach((audio) => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+
+    sound.play().catch(() => {
+        // Browsers can reject playback if the click gesture is interrupted.
+    });
+}
 
 function setupPosterPreview() {
     const posterButtons = document.querySelectorAll('.campaign-poster-open');
