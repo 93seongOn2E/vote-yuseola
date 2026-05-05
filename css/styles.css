@@ -11989,7 +11989,7 @@ html {
 .campaign-song-placeholder strong {
     display: block;
     margin-bottom: 0.35rem;
-    font-size: 1.2rem;
+    font-size: 1.22rem;
     font-weight: 900;
 }
 
@@ -12055,7 +12055,7 @@ html {
     background: transparent;
     border-radius: 0;
     box-shadow: none;
-    font-size: 1.12rem;
+    font-size: 1.22rem;
     line-height: 1;
     filter: drop-shadow(0 0.05rem 0.08rem rgba(6, 78, 59, 0.28));
     transform: translateX(0.05rem);
@@ -12285,6 +12285,11 @@ html {
     border: 1px solid rgba(5, 150, 105, 0.14);
     border-radius: 0.75rem;
     box-shadow: 0 0.85rem 2rem rgba(18, 48, 38, 0.08);
+    transform: translateZ(0) scale(1);
+    transform-origin: center;
+    backface-visibility: hidden;
+    will-change: transform, box-shadow;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease, filter 0.18s ease;
 }
 
 .pledge-number {
@@ -12292,7 +12297,7 @@ html {
     align-items: center;
     justify-content: center;
     min-width: 2.75rem;
-    height: 2.05rem;
+    height: 1.75rem;
     padding: 0 0.55rem;
     color: #ffffff;
     background: linear-gradient(135deg, #065f46, #10b981);
@@ -12301,10 +12306,45 @@ html {
     font-weight: 900;
 }
 
+
+.pledge-card:hover,
+.pledge-card:focus-within {
+    border-color: rgba(5, 150, 105, 0.36);
+    background: #ffffff;
+    box-shadow: 0 1.25rem 2.6rem rgba(18, 48, 38, 0.16);
+    filter: brightness(1.025);
+    transform: translate3d(0, -0.25rem, 0) scale(1.018);
+}
+
+.pledge-card-featured:hover,
+.pledge-card-featured:focus-within {
+    color: #ffffff;
+    background: radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.24), transparent 36%), linear-gradient(135deg, #064e3b, #047857 56%, #059669);
+    box-shadow: 0 1.35rem 2.8rem rgba(6, 78, 59, 0.28);
+    filter: brightness(1.06);
+    transform: translate3d(0, -0.25rem, 0) scale(1.018);
+}
+
+
+.pledge-card-title,
+.pledge-card p {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+.pledge-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.75rem;
+}
+
+.pledge-card-title h3 {
+    margin: 0;
+}
 .pledge-card h3 {
-    margin: 1rem 0 0.65rem;
+    margin: 0;
     color: #123026;
-    font-size: 1.2rem;
+    font-size: 1.22rem;
     font-weight: 900;
     letter-spacing: 0;
 }
@@ -12595,7 +12635,6 @@ html {
     .campaign-song-placeholder {
         align-items: stretch;
     }
-}
 
     .supporters-track {
         gap: 0.75rem;
@@ -12973,6 +13012,18 @@ html {
     left: -2vw;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
