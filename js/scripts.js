@@ -14,6 +14,8 @@ window.addEventListener('DOMContentLoaded', () => {
     setupPosterPreview();
     setupSupportersMarquee();
     setupResponsiveCafeLinks();
+    setupCampaignSongPlayers();
+    setupHomepageBgm();
 
     if (!supportButton) {
         return;
@@ -66,7 +68,109 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-function setupResponsiveCafeLinks() {
+
+function setupHomepageBgm() {
+    const bgm = document.getElementById('homepageBgm');
+    const button = document.getElementById('bgmToggleButton');
+    const icon = button?.querySelector('i');
+    const stateText = button?.querySelector('.campaign-bgm-state');
+
+    if (!bgm || !button || !icon || !stateText) {
+        return;
+    }
+
+    bgm.volume = 0.22;
+    bgm.muted = false;
+    icon.className = 'bi bi-music-note-beamed';
+
+    const syncButton = () => {
+        const isActive = !bgm.paused && !bgm.muted;
+        button.classList.toggle('is-playing', isActive);
+        button.classList.toggle('is-muted', bgm.muted || bgm.paused);
+        button.setAttribute('aria-pressed', String(isActive));
+        button.setAttribute('aria-label', isActive ? '홈페이지 BGM 음소거' : '홈페이지 BGM 켜기');
+        icon.className = 'bi bi-music-note-beamed';
+        stateText.textContent = isActive ? 'ON' : 'OFF';
+    };
+
+    bgm.play().then(syncButton).catch(syncButton);
+
+    button.addEventListener('click', async () => {
+        try {
+            if (bgm.paused) {
+                bgm.muted = false;
+                await bgm.play();
+            } else {
+                bgm.muted = !bgm.muted;
+            }
+
+            syncButton();
+        } catch {
+            syncButton();
+        }
+    });
+}
+
+function setupCampaignSongPlayers() {
+    const players = Array.from(document.querySelectorAll('.campaign-song-player'));
+
+    if (!players.length) {
+        return;
+    }
+
+    const playerState = players.map((player) => {
+        const source = player.getAttribute('data-audio-src');
+        const button = player.querySelector('.campaign-song-play');
+        const icon = button?.querySelector('i');
+        const volume = player.querySelector('input[type="range"]');
+        const audio = new Audio(source || '');
+
+        audio.preload = 'metadata';
+        audio.volume = Number(volume?.value || 0.75);
+
+        return { player, button, icon, volume, audio };
+    });
+
+    function setPlaying(state, isPlaying) {
+        state.player.classList.toggle('is-playing', isPlaying);
+
+        if (state.icon) {
+            state.icon.className = isPlaying ? 'bi bi-pause-fill' : 'bi bi-play-fill';
+        }
+    }
+
+    playerState.forEach((state) => {
+        state.button?.addEventListener('click', async () => {
+            const shouldPlay = state.audio.paused;
+
+            playerState.forEach((other) => {
+                if (other !== state) {
+                    other.audio.pause();
+                    setPlaying(other, false);
+                }
+            });
+
+            if (!shouldPlay) {
+                state.audio.pause();
+                setPlaying(state, false);
+                return;
+            }
+
+            try {
+                await state.audio.play();
+                setPlaying(state, true);
+            } catch {
+                setPlaying(state, false);
+            }
+        });
+
+        state.volume?.addEventListener('input', () => {
+            state.audio.volume = Number(state.volume.value);
+        });
+
+        state.audio.addEventListener('ended', () => setPlaying(state, false));
+    });
+}function setupResponsiveCafeLinks() {
     const links = document.querySelectorAll('.responsive-cafe-link');
 
     if (!links.length) {
@@ -299,6 +403,17 @@ function launchConfetti() {
 
     requestAnimationFrame(animate);
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
