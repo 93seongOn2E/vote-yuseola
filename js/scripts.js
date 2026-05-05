@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     setupPosterPreview();
     setupSupportersMarquee();
+    setupResponsiveCafeLinks();
 
     if (!supportButton) {
         return;
@@ -63,6 +64,25 @@ window.addEventListener('DOMContentLoaded', () => {
         launchConfetti();
     });
 });
+
+
+function setupResponsiveCafeLinks() {
+    const links = document.querySelectorAll('.responsive-cafe-link');
+
+    if (!links.length) {
+        return;
+    }
+
+    const isMobile = () => window.matchMedia('(max-width: 767.98px)').matches || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+
+    links.forEach((link) => {
+        link.addEventListener('click', () => {
+            const desktopUrl = link.getAttribute('data-desktop-url') || link.href;
+            const mobileUrl = link.getAttribute('data-mobile-url') || desktopUrl;
+            link.href = isMobile() ? mobileUrl : desktopUrl;
+        });
+    });
+}
 
 function playSupportSound(sounds, clickCount) {
     if (!sounds.length) {
@@ -279,6 +299,11 @@ function launchConfetti() {
 
     requestAnimationFrame(animate);
 }
+
+
+
+
+
 
 
 
