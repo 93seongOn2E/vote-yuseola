@@ -33,6 +33,7 @@
                 <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#top">홈</a></li>
                     <li class="nav-item"><a class="nav-link" href="#reason">선택근거</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pledges">공약</a></li>
                     <li class="nav-item"><a class="nav-link" href="#support">지지하기</a></li>
                     <li class="nav-item"><a class="nav-link" href="#media">미디어</a></li>
                     <li class="nav-item"><a class="nav-link" href="#history">후보 이력</a></li>
@@ -198,7 +199,8 @@
                 </div>
             </div>
         </header>
-        <!-- About Section-->
+
+        <!-- 선택 근거-->
         <section class="bg-light py-5" id="reason">
             <div class="container px-5 my-5">
                 <div class="text-center mb-5">
@@ -225,7 +227,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                         <!-- Project Card 2-->
                         <!--<div class="card overflow-hidden shadow rounded-4 border-0">
                         <div class="card-body p-0">
@@ -243,6 +245,50 @@
             </div>
         </section>
 
+        <!--공약섹션-->
+        <section class="pledge-section py-5" id="pledges" style="display:none;" aria-labelledby="pledgesTitle">
+            <div class="container px-5 my-5">
+                <div class="pledge-header text-center mb-5">
+                    <span class="pledge-kicker">Campaign Promise</span>
+                    <h1 class="pledge-title" id="pledgesTitle">버컴퍼니를 움직일 10가지 약속</h1>
+                    <p class="pledge-copy mb-0">말뿐인 공약이 아니라, 버컴퍼니의 분위기와 콘텐츠를 살리는 실전형 약속.</p>
+                </div>
+                <div class="pledge-grid">
+                    <article class="pledge-card">
+                        <span class="pledge-number">01</span>
+                        <h3>콘텐츠 회의 정례화</h3>
+                        <p>시청자 민심과 멤버 의견을 모아 꾸준히 방송각을 만드는 회의 체계를 만들겠습니다.</p>
+                    </article>
+                    <article class="pledge-card">
+                        <span class="pledge-number">02</span>
+                        <h3>시청자 참여 코너 확대</h3>
+                        <p>투표, 제보, 미션형 콘텐츠처럼 팬들이 직접 참여할 수 있는 장치를 늘리겠습니다.</p>
+                    </article>
+                    <article class="pledge-card">
+                        <span class="pledge-number">03</span>
+                        <h3>합방 추진위원회 운영</h3>
+                        <p>버컴퍼니 안팎의 합방 기회를 만들고 자연스러운 케미를 연결하겠습니다.</p>
+                    </article>
+                    <article class="pledge-card">
+                        <span class="pledge-number">04</span>
+                        <h3>억울함 청문회 개최</h3>
+                        <p>억울한 멤버와 시청자 민심이 쌓이지 않도록 유쾌하게 풀어내는 시간을 만들겠습니다.</p>
+                    </article>
+                    <article class="pledge-card">
+                        <span class="pledge-number">05</span>
+                        <h3>분위기 회복 프로젝트</h3>
+                        <p>방송 흐름이 처질 때 바로 분위기를 살릴 수 있는 비상 콘텐츠를 준비하겠습니다.</p>
+                    </article>
+                    <article class="pledge-card pledge-card-featured">
+                        <span class="pledge-number">D</span>
+                        <h3>근본 지키기</h3>
+                        <p>버컴퍼니의 시작을 기억하고, 끝까지 함께 가는 2인자의 책임을 보여드리겠습니다.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!--응원단 섹션-->
         <section class="supporters-section py-5" id="supporters" aria-labelledby="supportersTitle">
             <div class="container px-5">
                 <div class="text-center mb-4">
@@ -290,6 +336,7 @@
             </div>
         </section>
 
+        <!--지지하기 섹션-->
         <section class="py-5 support-gradient text-white" id="support">
             <div class="container px-5 my-5">
                 <div class="text-center">
@@ -302,6 +349,8 @@
                 </div>
             </div>
         </section>
+        
+        <!--미디어 섹션-->
         <section class="campaign-media-section py-5" id="media">
             <div class="container px-5 my-5">
                 <div class="campaign-media">
@@ -405,6 +454,9 @@
                 </div>
             </div>
         </div>
+        
+        
+        <!--후보 이력 섹션-->
         <section class="bg-light py-5" id="history">
             <div class="container px-5 my-5">
                 <div class="text-center mb-5">
@@ -476,11 +528,11 @@
         </section>
     </main>
     <!-- Footer-->
-    <footer class="bg-white py-4 mt-auto">
+    <footer class="campaign-nav campaign-footer py-4 mt-auto">
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                <div class="col-auto"><div class="small m-0">Copyright © 근본당 선거캠프본부 2026</div></div>
-                <div class="col-auto"><div class="small m-0">Create By 욱기!</div></div>
+                <div class="col-auto"><div class="small m-0 campaign-footer-text">Copyright © 근본당 선거캠프본부 2026</div></div>
+                <div class="col-auto"><div class="small m-0 campaign-footer-text campaign-footer-credit">Create By 욱기!</div></div>
             </div>
         </div>
     </footer>
@@ -490,10 +542,3 @@
     <script src="js/scripts.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
