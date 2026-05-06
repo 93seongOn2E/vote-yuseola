@@ -12732,6 +12732,76 @@ html {
     box-shadow: 0 0.75rem 1.6rem rgba(15, 23, 42, 0.12);
 }
 
+.supporters-featured-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 1.35rem 0 1.85rem;
+}
+
+.supporter-card-fixed {
+    position: relative;
+    grid-template-rows: 10.4rem auto;
+    width: 12.4rem;
+    padding-top: 0.4rem;
+    isolation: isolate;
+}
+
+.supporter-card-fixed:hover,
+.supporter-card-fixed:focus {
+    transform: translateY(-0.25rem) scale(1.02);
+}
+
+.supporter-card-fixed img {
+    width: 10.4rem;
+    height: 10.4rem;
+    border-color: #fff5fb;
+    box-shadow: 0 1rem 2.1rem rgba(219, 39, 119, 0.2), 0 0 0 0.45rem rgba(255, 228, 239, 0.9);
+}
+
+.supporter-unity-card .supporter-info {
+    border-color: rgba(236, 72, 153, 0.22);
+    box-shadow: 0 0.75rem 1.5rem rgba(219, 39, 119, 0.12);
+}
+
+.supporter-unity-card .supporter-info span {
+    color: #be185d;
+    background: #fdf2f8;
+}
+
+.unity-badge {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.15rem;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 4.35rem;
+    padding: 0.34rem 0.68rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff4fa3, #db2777);
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    box-shadow: 0 0.65rem 1.3rem rgba(219, 39, 119, 0.28);
+    font-size: 0.86rem;
+    font-weight: 900;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.unity-crown {
+    position: absolute;
+    top: -1.3rem;
+    right: -0.1rem;
+    z-index: 4;
+    color: #ff3fa4;
+    font-size: 4.8rem;
+    line-height: 1;
+    text-shadow: 0 0.12rem 0 #ffffff, 0 0.4rem 0.85rem rgba(190, 24, 93, 0.34);
+    transform: rotate(10deg);
+    pointer-events: none;
+}
+
 .supporter-info {
     display: flex;
     flex-direction: column;
@@ -12898,6 +12968,28 @@ html {
 
     .supporter-info strong {
         font-size: 0.88rem;
+    }
+
+    .supporter-card-fixed {
+        grid-template-rows: 9.35rem auto;
+        width: 11.25rem;
+    }
+
+    .supporter-card-fixed img {
+        width: 9.35rem;
+        height: 9.35rem;
+    }
+
+    .unity-badge {
+        top: 0.62rem;
+        left: 0;
+        font-size: 0.78rem;
+    }
+
+    .unity-crown {
+        top: -1rem;
+        right: -0.05rem;
+        font-size: 4rem;
     }
 }
 
