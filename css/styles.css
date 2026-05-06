@@ -11704,6 +11704,112 @@ html {
     border-color: rgba(5, 150, 105, 0.42);
 }
 
+.bgm-confirm-modal .modal-dialog {
+    max-width: 25rem;
+}
+
+.bgm-confirm-modal .modal-content {
+    align-items: center;
+    padding: 1.45rem;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+    border: 1px solid rgba(5, 150, 105, 0.2);
+    border-radius: 1rem;
+    box-shadow: 0 1.4rem 3rem rgba(15, 23, 42, 0.2);
+}
+
+.bgm-confirm-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.4rem;
+    height: 3.4rem;
+    margin-bottom: 0.9rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #047857, #10b981);
+    border-radius: 50%;
+    box-shadow: 0 0.8rem 1.6rem rgba(5, 150, 105, 0.24);
+}
+
+.bgm-confirm-icon i {
+    font-size: 1.45rem;
+}
+
+.bgm-confirm-modal .modal-body {
+    padding: 0;
+}
+
+.bgm-confirm-kicker {
+    display: block;
+    margin-bottom: 0.38rem;
+    color: #059669;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.bgm-confirm-modal .modal-title {
+    color: #123026;
+    font-size: 1.18rem;
+    font-weight: 900;
+    line-height: 1.35;
+}
+
+.bgm-confirm-modal p {
+    margin: 0.7rem 0 0;
+    color: #52645b;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.55;
+}
+
+.bgm-confirm-modal .modal-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+    width: 100%;
+    margin-top: 1.15rem;
+    padding: 0;
+    border-top: 0;
+}
+
+.bgm-confirm-primary,
+.bgm-confirm-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.28rem;
+    min-height: 2.65rem;
+    padding: 0 0.95rem;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 900;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.bgm-confirm-primary {
+    color: #ffffff;
+    background: linear-gradient(135deg, #047857, #10b981);
+    border: 1px solid #34d399;
+    box-shadow: 0 0.7rem 1.35rem rgba(5, 150, 105, 0.22);
+}
+
+.bgm-confirm-secondary {
+    color: #064e3b;
+    background: #ffffff;
+    border: 1px solid rgba(5, 150, 105, 0.24);
+}
+
+.bgm-confirm-primary:hover,
+.bgm-confirm-primary:focus,
+.bgm-confirm-secondary:hover,
+.bgm-confirm-secondary:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 0.75rem 1.4rem rgba(6, 78, 59, 0.14);
+}
+
 
 .campaign-nav-links img {
     display: block;
@@ -11891,8 +11997,8 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    aspect-ratio: 16 / 10;
-    min-height: 28rem;
+    aspect-ratio: 16 / 12;
+    min-height: 39rem;
     padding: 1rem;
     background: #ecfdf5;
 }
@@ -11909,6 +12015,10 @@ html {
     cursor: zoom-in;
 }
 
+.campaign-poster-open-center {
+    place-content: center;
+}
+
 .campaign-poster-open:focus-visible {
     outline: 0.18rem solid rgba(5, 150, 105, 0.55);
     outline-offset: 0.2rem;
@@ -11917,9 +12027,17 @@ html {
 .campaign-poster-image {
     display: block;
     width: auto;
+    height: 100%;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    object-position: center center;
+    margin: auto;
+}
+
+.campaign-poster-image-center {
+    align-self: center;
+    justify-self: center;
 }
 
 .poster-preview-modal .modal-content {
@@ -11953,6 +12071,12 @@ html {
     max-width: 100%;
     max-height: 78vh;
     object-fit: contain;
+}
+
+.poster-preview-image.is-lg {
+    max-width: min(100%, 34rem);
+    max-height: 86vh;
+    width: 100%;
 }
 
 .campaign-song-panel {
@@ -12012,7 +12136,7 @@ html {
 
 .campaign-song-player {
     display: grid;
-    grid-template-columns: 2.15rem minmax(0, 1fr);
+    grid-template-columns: 2.15rem minmax(0, 1fr) 2.15rem;
     gap: 0.55rem 0.75rem;
     align-items: center;
     width: 100%;
@@ -12065,12 +12189,57 @@ html {
     min-width: 0;
 }
 
+.campaign-song-progress {
+    width: 100%;
+    height: 0.42rem;
+    margin-top: 0.62rem;
+    accent-color: #059669;
+    cursor: pointer;
+}
+
+.campaign-song-progress::-webkit-slider-runnable-track {
+    height: 0.36rem;
+    background: linear-gradient(180deg, #ffffff, #d8eee5);
+    border: 1px solid rgba(6, 78, 59, 0.18);
+    border-radius: 999px;
+}
+
+.campaign-song-progress::-webkit-slider-thumb {
+    width: 0.82rem;
+    height: 0.82rem;
+    margin-top: -0.27rem;
+    background: linear-gradient(145deg, #10b981, #047857);
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0.16rem 0.32rem rgba(6, 78, 59, 0.22);
+}
+
+.campaign-song-progress::-moz-range-track {
+    height: 0.36rem;
+    background: linear-gradient(180deg, #ffffff, #d8eee5);
+    border: 1px solid rgba(6, 78, 59, 0.18);
+    border-radius: 999px;
+}
+
+.campaign-song-progress::-moz-range-thumb {
+    width: 0.82rem;
+    height: 0.82rem;
+    background: linear-gradient(145deg, #10b981, #047857);
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0.16rem 0.32rem rgba(6, 78, 59, 0.22);
+}
+
 .campaign-song-meta strong {
     display: block;
+    max-width: 100%;
+    overflow: hidden;
     color: #123026;
-    font-size: 0.98rem;
+    font-size: 0.92rem;
     font-weight: 900;
     line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .campaign-song-meta span {
@@ -12081,24 +12250,76 @@ html {
 }
 
 .campaign-song-volume {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
+    position: relative;
+    display: inline-flex;
+    justify-self: end;
     margin: 0;
-    color: #52645b;
-    font-size: 0.78rem;
-    font-weight: 800;
 }
 
-.campaign-song-volume input {
-    width: 100%;
-    height: 0.48rem;
+.campaign-song-volume-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    color: #064e3b;
+    background: #ecfdf5;
+    border: 1px solid rgba(5, 150, 105, 0.24);
+    border-radius: 50%;
+}
+
+.campaign-song-volume-popover {
+    position: absolute;
+    right: 50%;
+    bottom: calc(100% + 0.55rem);
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.35rem;
+    height: 6.6rem;
+    padding: 0.7rem 0.45rem;
+    background: #ffffff;
+    border: 1px solid rgba(5, 150, 105, 0.24);
+    border-radius: 999px;
+    box-shadow: 0 0.85rem 1.8rem rgba(15, 23, 42, 0.14);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(50%, 0.35rem);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.campaign-song-volume-popover::after {
+    content: "";
+    position: absolute;
+    right: 50%;
+    bottom: -0.35rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background: #ffffff;
+    border-right: 1px solid rgba(5, 150, 105, 0.24);
+    border-bottom: 1px solid rgba(5, 150, 105, 0.24);
+    transform: translateX(50%) rotate(45deg);
+}
+
+.campaign-song-volume:hover .campaign-song-volume-popover,
+.campaign-song-volume:focus-within .campaign-song-volume-popover {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(50%, 0);
+}
+
+.campaign-song-volume-popover input {
+    width: 5.2rem;
+    height: 0.45rem;
     accent-color: #059669;
     cursor: pointer;
     filter: drop-shadow(0 0.12rem 0.18rem rgba(6, 78, 59, 0.16));
+    transform: rotate(-90deg);
 }
 
-.campaign-song-volume input::-webkit-slider-runnable-track {
+.campaign-song-volume-popover input::-webkit-slider-runnable-track {
     height: 0.42rem;
     background: linear-gradient(180deg, #ffffff, #d8eee5);
     border: 1px solid rgba(6, 78, 59, 0.22);
@@ -12106,7 +12327,7 @@ html {
     box-shadow: inset 0 0.08rem 0.16rem rgba(6, 78, 59, 0.14);
 }
 
-.campaign-song-volume input::-webkit-slider-thumb {
+.campaign-song-volume-popover input::-webkit-slider-thumb {
     width: 0.92rem;
     height: 0.92rem;
     margin-top: -0.3rem;
@@ -12116,7 +12337,7 @@ html {
     box-shadow: 0 0.18rem 0.36rem rgba(6, 78, 59, 0.24), inset 0 0.1rem 0.16rem rgba(255, 255, 255, 0.28);
 }
 
-.campaign-song-volume input::-moz-range-track {
+.campaign-song-volume-popover input::-moz-range-track {
     height: 0.42rem;
     background: linear-gradient(180deg, #ffffff, #d8eee5);
     border: 1px solid rgba(6, 78, 59, 0.22);
@@ -12124,7 +12345,7 @@ html {
     box-shadow: inset 0 0.08rem 0.16rem rgba(6, 78, 59, 0.14);
 }
 
-.campaign-song-volume input::-moz-range-thumb {
+.campaign-song-volume-popover input::-moz-range-thumb {
     width: 0.92rem;
     height: 0.92rem;
     background: linear-gradient(145deg, #10b981, #047857);

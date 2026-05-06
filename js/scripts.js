@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-function setupHomepageBgm() {
+function syncHomepageBgmButton() {
     const bgm = document.getElementById('homepageBgm');
     const button = document.getElementById('bgmToggleButton');
     const icon = button?.querySelector('i');
@@ -79,34 +79,66 @@ function setupHomepageBgm() {
         return;
     }
 
-    bgm.volume = 0.22;
-    bgm.muted = false;
+    const isActive = !bgm.paused;
+    button.classList.toggle('is-playing', isActive);
+    button.classList.toggle('is-muted', !isActive);
+    button.setAttribute('aria-pressed', String(isActive));
+    button.setAttribute('aria-label', isActive ? '홈페이지 BGM 끄기' : '홈페이지 BGM 켜기');
     icon.className = 'bi bi-music-note-beamed';
+    stateText.textContent = isActive ? 'ON' : 'OFF';
+}
 
-    const syncButton = () => {
-        const isActive = !bgm.paused && !bgm.muted;
-        button.classList.toggle('is-playing', isActive);
-        button.classList.toggle('is-muted', bgm.muted || bgm.paused);
-        button.setAttribute('aria-pressed', String(isActive));
-        button.setAttribute('aria-label', isActive ? '홈페이지 BGM 음소거' : '홈페이지 BGM 켜기');
-        icon.className = 'bi bi-music-note-beamed';
-        stateText.textContent = isActive ? 'ON' : 'OFF';
-    };
+function pauseHomepageBgm() {
+    const bgm = document.getElementById('homepageBgm');
 
-    bgm.play().then(syncButton).catch(syncButton);
+    if (!bgm || bgm.paused) {
+        return;
+    }
+
+    bgm.pause();
+    syncHomepageBgmButton();
+}
+
+function setupHomepageBgm() {
+    const bgm = document.getElementById('homepageBgm');
+    const button = document.getElementById('bgmToggleButton');
+    const confirmModalElement = document.getElementById('bgmConfirmModal');
+    const confirmPlayButton = document.getElementById('bgmConfirmPlayButton');
+
+    if (!bgm || !button) {
+        return;
+    }
+
+    bgm.volume = 0.17;
+    bgm.muted = false;
+
+    syncHomepageBgmButton();
+
+    const confirmModal = confirmModalElement && window.bootstrap ? new window.bootstrap.Modal(confirmModalElement) : null;
+
+    confirmModal?.show();
+
+    confirmPlayButton?.addEventListener('click', async () => {
+        try {
+            await bgm.play();
+            syncHomepageBgmButton();
+            confirmModal?.hide();
+        } catch {
+            syncHomepageBgmButton();
+        }
+    });
 
     button.addEventListener('click', async () => {
         try {
             if (bgm.paused) {
-                bgm.muted = false;
                 await bgm.play();
             } else {
-                bgm.muted = !bgm.muted;
+                bgm.pause();
             }
 
-            syncButton();
+            syncHomepageBgmButton();
         } catch {
-            syncButton();
+            syncHomepageBgmButton();
         }
     });
 }
@@ -122,13 +154,14 @@ function setupCampaignSongPlayers() {
         const source = player.getAttribute('data-audio-src');
         const button = player.querySelector('.campaign-song-play');
         const icon = button?.querySelector('i');
-        const volume = player.querySelector('input[type="range"]');
+        const progress = player.querySelector('.campaign-song-progress');
+        const volume = player.querySelector('.campaign-song-volume-popover input[type="range"]');
         const audio = new Audio(source || '');
 
         audio.preload = 'metadata';
         audio.volume = Number(volume?.value || 0.75);
 
-        return { player, button, icon, volume, audio };
+        return { player, button, icon, progress, volume, audio };
     });
 
     function setPlaying(state, isPlaying) {
@@ -157,6 +190,7 @@ function setupCampaignSongPlayers() {
             }
 
             try {
+                pauseHomepageBgm();
                 await state.audio.play();
                 setPlaying(state, true);
             } catch {
@@ -168,9 +202,33 @@ function setupCampaignSongPlayers() {
             state.audio.volume = Number(state.volume.value);
         });
 
-        state.audio.addEventListener('ended', () => setPlaying(state, false));
+        state.progress?.addEventListener('input', () => {
+            if (!Number.isFinite(state.audio.duration) || state.audio.duration <= 0) {
+                return;
+            }
+
+            state.audio.currentTime = (Number(state.progress.value) / 100) * state.audio.duration;
+        });
+
+        state.audio.addEventListener('timeupdate', () => {
+            if (!state.progress || !Number.isFinite(state.audio.duration) || state.audio.duration <= 0) {
+                return;
+            }
+
+            state.progress.value = String((state.audio.currentTime / state.audio.duration) * 100);
+        });
+
+        state.audio.addEventListener('ended', () => {
+            setPlaying(state, false);
+
+            if (state.progress) {
+                state.progress.value = '0';
+            }
+        });
     });
-}function setupResponsiveCafeLinks() {
+}
+
+function setupResponsiveCafeLinks() {
     const links = document.querySelectorAll('.responsive-cafe-link');
 
     if (!links.length) {
@@ -284,6 +342,7 @@ function setupPosterPreview() {
         button.addEventListener('click', () => {
             const posterSrc = button.getAttribute('data-poster-src');
             const posterAlt = button.getAttribute('data-poster-alt') || '선거 포스터';
+            const posterSize = button.getAttribute('data-poster-size');
 
             if (!posterSrc) {
                 return;
@@ -291,6 +350,7 @@ function setupPosterPreview() {
 
             previewImage.src = posterSrc;
             previewImage.alt = posterAlt;
+            previewImage.classList.toggle('is-lg', posterSize === 'lg');
             previewModal.show();
         });
     });
@@ -298,6 +358,7 @@ function setupPosterPreview() {
     previewModalElement.addEventListener('hidden.bs.modal', () => {
         previewImage.src = '';
         previewImage.alt = '';
+        previewImage.classList.remove('is-lg');
     });
 }
 
