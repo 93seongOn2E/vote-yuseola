@@ -12256,6 +12256,22 @@ html {
     margin: 0;
 }
 
+.campaign-song-volume::before {
+    content: "";
+    position: absolute;
+    right: 50%;
+    bottom: 100%;
+    display: none;
+    width: 2.8rem;
+    height: 0.75rem;
+    transform: translateX(50%);
+}
+
+.campaign-song-volume:hover::before,
+.campaign-song-volume.is-volume-open::before {
+    display: block;
+}
+
 .campaign-song-volume-button {
     display: inline-flex;
     align-items: center;
@@ -12304,7 +12320,7 @@ html {
 }
 
 .campaign-song-volume:hover .campaign-song-volume-popover,
-.campaign-song-volume:focus-within .campaign-song-volume-popover {
+.campaign-song-volume.is-volume-open .campaign-song-volume-popover {
     opacity: 1;
     pointer-events: auto;
     transform: translate(50%, 0);

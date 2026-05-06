@@ -155,13 +155,15 @@ function setupCampaignSongPlayers() {
         const button = player.querySelector('.campaign-song-play');
         const icon = button?.querySelector('i');
         const progress = player.querySelector('.campaign-song-progress');
+        const volumeWrap = player.querySelector('.campaign-song-volume');
+        const volumeButton = player.querySelector('.campaign-song-volume-button');
         const volume = player.querySelector('.campaign-song-volume-popover input[type="range"]');
         const audio = new Audio(source || '');
 
         audio.preload = 'metadata';
-        audio.volume = Number(volume?.value || 0.75);
+        audio.volume = Number(volume?.value || 0.5);
 
-        return { player, button, icon, progress, volume, audio };
+        return { player, button, icon, progress, volumeWrap, volumeButton, volume, audio };
     });
 
     function setPlaying(state, isPlaying) {
@@ -201,6 +203,38 @@ function setupCampaignSongPlayers() {
         state.volume?.addEventListener('input', () => {
             state.audio.volume = Number(state.volume.value);
         });
+
+        if (state.volumeWrap) {
+            let volumeCloseTimer;
+
+            const openVolume = () => {
+                window.clearTimeout(volumeCloseTimer);
+                state.volumeWrap.classList.add('is-volume-open');
+            };
+
+            const closeVolume = () => {
+                window.clearTimeout(volumeCloseTimer);
+                volumeCloseTimer = window.setTimeout(() => {
+                    state.volumeWrap.classList.remove('is-volume-open');
+                }, 180);
+            };
+
+            state.volumeWrap.addEventListener('pointerenter', openVolume);
+            state.volumeWrap.addEventListener('pointerleave', closeVolume);
+            state.volumeButton?.addEventListener('focus', openVolume);
+            state.volumeButton?.addEventListener('click', openVolume);
+            state.volume?.addEventListener('focus', openVolume);
+            state.volume?.addEventListener('pointerup', () => {
+                state.volume.blur();
+                closeVolume();
+            });
+            state.volume?.addEventListener('change', closeVolume);
+            document.addEventListener('pointerdown', (event) => {
+                if (!state.volumeWrap.contains(event.target)) {
+                    state.volumeWrap.classList.remove('is-volume-open');
+                }
+            });
+        }
 
         state.progress?.addEventListener('input', () => {
             if (!Number.isFinite(state.audio.duration) || state.audio.duration <= 0) {
