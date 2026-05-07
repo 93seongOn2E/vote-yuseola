@@ -11705,7 +11705,7 @@ html {
 }
 
 .bgm-confirm-modal .modal-dialog {
-    max-width: 25rem;
+    max-width: 27rem;
 }
 
 .bgm-confirm-modal .modal-content {
@@ -11767,7 +11767,7 @@ html {
 
 .bgm-confirm-modal .modal-footer {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.65rem;
     width: 100%;
     margin-top: 1.15rem;
@@ -11786,7 +11786,13 @@ html {
     border-radius: 999px;
     font-size: 0.92rem;
     font-weight: 900;
+    white-space: nowrap;
     transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.bgm-confirm-primary i,
+.bgm-confirm-secondary i {
+    flex: 0 0 auto;
 }
 
 .bgm-confirm-primary {
@@ -11802,12 +11808,22 @@ html {
     border: 1px solid rgba(5, 150, 105, 0.24);
 }
 
+.bgm-confirm-media {
+    background: #ecfdf5;
+}
+
 .bgm-confirm-primary:hover,
 .bgm-confirm-primary:focus,
 .bgm-confirm-secondary:hover,
 .bgm-confirm-secondary:focus {
     transform: translateY(-1px);
     box-shadow: 0 0.75rem 1.4rem rgba(6, 78, 59, 0.14);
+}
+
+@media (max-width: 575.98px) {
+    .bgm-confirm-modal .modal-footer {
+        grid-template-columns: 1fr;
+    }
 }
 
 
@@ -11940,6 +11956,7 @@ html {
     grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
     gap: 1.25rem;
     align-items: stretch;
+    margin-top: 1.25rem;
 }
 
 .campaign-media-panel {
@@ -12372,13 +12389,17 @@ html {
 
 .campaign-notice-list {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
     gap: 0.7rem;
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
-.campaign-notice-list a {
+.campaign-notice-list a,
+.campaign-notice-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -12393,6 +12414,45 @@ html {
     transition: color 0.16s ease, border-color 0.16s ease, background-color 0.16s ease, transform 0.16s ease;
 }
 
+.campaign-notice-item {
+    color: #475569;
+}
+
+.campaign-notice-celebration {
+    position: relative;
+    overflow: hidden;
+    color: #064e3b;
+    background: linear-gradient(135deg, #ecfdf5, #ffffff 52%, #dcfce7);
+    border-color: rgba(5, 150, 105, 0.28);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.campaign-notice-celebration::before,
+.campaign-notice-celebration::after {
+    content: "✦";
+    position: absolute;
+    color: rgba(5, 150, 105, 0.28);
+    font-size: 1.15rem;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.campaign-notice-celebration::before {
+    left: 0.55rem;
+    top: 0.28rem;
+}
+
+.campaign-notice-celebration::after {
+    right: 2.2rem;
+    bottom: 0.22rem;
+}
+
+.campaign-notice-celebration span,
+.campaign-notice-celebration i {
+    position: relative;
+    z-index: 1;
+}
+
 .campaign-notice-list a:hover,
 .campaign-notice-list a:focus {
     color: #064e3b;
@@ -12401,7 +12461,8 @@ html {
     transform: translateX(0.2rem);
 }
 
-.campaign-notice-list i {
+.campaign-notice-list i,
+.campaign-notice-item i {
     flex: 0 0 auto;
     color: #059669;
     font-size: 0.9rem;
@@ -12917,6 +12978,12 @@ html {
 
     .campaign-media-panel {
         padding: 1rem;
+    }
+
+    .campaign-notice-list {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-auto-flow: row;
     }
 
     .proof-card-content {

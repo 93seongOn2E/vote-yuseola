@@ -403,6 +403,32 @@
                         <h3 class="campaign-media-title fw-bolder mb-2">미디어</h3>
                         <p class="campaign-media-copy mb-0">선거 포스터와 선거송을 한곳에서 확인하세요.</p>
                     </div>
+                    <section class="campaign-media-panel campaign-notice-panel" aria-labelledby="campaignNoticeTitle">
+                        <div class="campaign-media-panel-header">
+                            <span class="campaign-media-kicker">Notice</span>
+                            <h4 class="fw-bolder mb-0" id="campaignNoticeTitle">📣 공지사항</h4>
+                        </div>
+                        <ul class="campaign-notice-list">
+                            <li>
+                                <a href="https://www.sooplive.com/station/yeveee/post/194662209" target="_blank" aria-label="유설아 2인자 선거 관련 공지">
+                                    <span>💚유설아 2인자 선거 관련 공지🤍</span>
+                                    <i class="bi bi-chevron-right"></i>
+                                </a>
+                            </li>
+                             <li>
+                                <a class="responsive-cafe-link" href="https://cafe.naver.com/f-e/cafes/31396984/articles/9065?menuid=40&referrerAllArticles=false" target="_blank" rel="noopener noreferrer" aria-label="선거송/선거포스터 이벤트 진행중" data-desktop-url="https://cafe.naver.com/f-e/cafes/31396984/articles/9065?menuid=40&referrerAllArticles=false" data-mobile-url="https://m.cafe.naver.com/ca-fe/web/cafes/31396984/articles/9065?menuid=40&referrerAllArticles=false&tc">
+                                    <span>🤍선거송/선거포스터 이벤트 진행중💚</span>
+                                    <i class="bi bi-chevron-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="campaign-notice-item campaign-notice-celebration">
+                                    <span>🎉 근본당 유설아 × 저림당 니니 후보 단일화 🎊</span>
+                                    <i class="bi bi-stars"></i>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
                     <div class="campaign-media-layout">
                         <section class="campaign-media-panel campaign-poster-panel" aria-labelledby="posterSliderTitle">
                             <div class="campaign-media-panel-header">
@@ -448,35 +474,7 @@
                                 </button>
                             </div>
                         </section>
-                        <div class="campaign-media-sidebar">
-                            <section class="campaign-media-panel campaign-notice-panel" aria-labelledby="campaignNoticeTitle">
-                                <div class="campaign-media-panel-header">
-                                    <span class="campaign-media-kicker">Notice</span>
-                                    <h4 class="fw-bolder mb-0" id="campaignNoticeTitle">📣 공지사항</h4>
-                                </div>
-                                <ul class="campaign-notice-list">
-                                    <li>
-                                        <a href="https://www.sooplive.com/station/yeveee/post/194662209" target="_blank" aria-label="유설아 2인자 선거 관련 공지">
-                                            <span>💚유설아 2인자 선거 관련 공지🤍</span>
-                                            <i class="bi bi-chevron-right"></i>
-                                        </a>
-                                    </li>
-                                     <li>
-                                        <a class="responsive-cafe-link" href="https://cafe.naver.com/f-e/cafes/31396984/articles/9065?menuid=40&referrerAllArticles=false" target="_blank" rel="noopener noreferrer" aria-label="선거송/선거포스터 이벤트 진행중" data-desktop-url="https://cafe.naver.com/f-e/cafes/31396984/articles/9065?menuid=40&referrerAllArticles=false" data-mobile-url="https://m.cafe.naver.com/ca-fe/web/cafes/31396984/articles/9065?menuid=40&referrerAllArticles=false&tc">
-                                            <span>🤍선거송/선거포스터 이벤트 진행중💚</span>
-                                            <i class="bi bi-chevron-right"></i>
-                                        </a>
-                                    </li>
-                                    <!--
-                                    <li>
-                                        <a href="#" aria-label="후보자 공지사항 3">
-                                            <span>후보자 공지사항 3</span>
-                                            <i class="bi bi-chevron-right"></i>
-                                        </a>
-                                    </li> -->
-                                </ul>
-                            </section>
-                            <section class="campaign-media-panel campaign-song-panel" aria-labelledby="campaignSongTitle">
+                            <section class="campaign-media-panel campaign-song-panel" id="campaignSongPlaylist" aria-labelledby="campaignSongTitle">
                                 <div class="campaign-media-panel-header">
                                     <span class="campaign-media-kicker">Song</span>
                                     <h4 class="fw-bolder mb-0" id="campaignSongTitle">🎶 선거송</h4>
@@ -533,7 +531,6 @@
                                     </div>
                                 </div>
                             </section>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -562,6 +559,10 @@
                     </div>
                     <div class="modal-footer">
                         <button class="bgm-confirm-secondary" type="button" data-bs-dismiss="modal">나중에</button>
+                        <button class="bgm-confirm-secondary bgm-confirm-media" type="button" id="bgmConfirmMediaButton">
+                            <i class="bi bi-music-note-list"></i>
+                            재생목록
+                        </button>
                         <button class="bgm-confirm-primary" type="button" id="bgmConfirmPlayButton">
                             <i class="bi bi-play-fill"></i>
                             BGM 켜기

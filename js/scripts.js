@@ -104,6 +104,7 @@ function setupHomepageBgm() {
     const button = document.getElementById('bgmToggleButton');
     const confirmModalElement = document.getElementById('bgmConfirmModal');
     const confirmPlayButton = document.getElementById('bgmConfirmPlayButton');
+    const confirmMediaButton = document.getElementById('bgmConfirmMediaButton');
 
     if (!bgm || !button) {
         return;
@@ -126,6 +127,13 @@ function setupHomepageBgm() {
         } catch {
             syncHomepageBgmButton();
         }
+    });
+
+    confirmMediaButton?.addEventListener('click', () => {
+        const playlistSection = document.getElementById('campaignSongPlaylist');
+
+        confirmModal?.hide();
+        playlistSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     button.addEventListener('click', async () => {
