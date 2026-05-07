@@ -13112,6 +13112,11 @@ html {
     background: #fff7ed;
 }
 
+.supporter-card:has(img[src*="fishman-island"]) .supporter-info span {
+    color: #0369a1;
+    background: #e0f2fe;
+}
+
 
 .proof-card-link {
     display: block;
