@@ -319,7 +319,8 @@ function setupSupportersMarquee() {
     let halfWidth = 0;
     let lastTime = performance.now();
     let isPaused = false;
-    const pixelsPerSecond = 42;
+    let speedMultiplier = 1;
+    const pixelsPerSecond = 50;
 
     function measureTrack() {
         halfWidth = track.scrollWidth / 2;
@@ -331,7 +332,7 @@ function setupSupportersMarquee() {
         lastTime = currentTime;
 
         if (!isPaused && halfWidth > 0) {
-            offset = (offset + direction * pixelsPerSecond * elapsed) % halfWidth;
+            offset = (offset + direction * pixelsPerSecond * speedMultiplier * elapsed) % halfWidth;
 
             if (offset < 0) {
                 offset += halfWidth;
@@ -362,7 +363,16 @@ function setupSupportersMarquee() {
         };
 
         button.addEventListener('mouseenter', changeDirection);
+        button.addEventListener('mouseenter', () => {
+            speedMultiplier = 2.5;
+        });
+        button.addEventListener('mouseleave', () => {
+            speedMultiplier = 1;
+        });
         button.addEventListener('focus', changeDirection);
+        button.addEventListener('blur', () => {
+            speedMultiplier = 1;
+        });
         button.addEventListener('click', changeDirection);
     });
 

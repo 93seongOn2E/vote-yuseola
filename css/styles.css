@@ -12794,9 +12794,13 @@ html {
 }
 
 .supporters-featured-wrap {
-    display: flex;
+    display: grid;
+    grid-template-columns: 10.85rem 10.85rem 12.4rem 10.85rem 10.85rem;
+    align-items: flex-end;
     justify-content: center;
-    margin: 1.35rem 0 1.85rem;
+    gap: clamp(0.7rem, 1.7vw, 1.15rem);
+    margin: 1.35rem auto 1.85rem;
+    max-width: 60rem;
 }
 
 .supporter-card-fixed {
@@ -12817,6 +12821,22 @@ html {
     height: 10.4rem;
     border-color: #fff5fb;
     box-shadow: 0 1rem 2.1rem rgba(219, 39, 119, 0.2), 0 0 0 0.45rem rgba(255, 228, 239, 0.9);
+}
+
+.supporter-feature-card {
+    grid-template-rows: 8.9rem auto;
+    width: 10.85rem;
+}
+
+.supporter-feature-card img {
+    width: 8.9rem;
+    height: 8.9rem;
+}
+
+.supporter-feature-spacer {
+    display: block;
+    width: 10.85rem;
+    height: 1px;
 }
 
 .supporter-unity-card .supporter-info {
@@ -12863,6 +12883,147 @@ html {
     pointer-events: none;
 }
 
+.supporter-bubble-card img {
+    border-color: #fff8d4;
+    background: #e0f7ff;
+    box-shadow: 0 0.9rem 1.8rem rgba(37, 99, 235, 0.18), 0 0 0 0.42rem rgba(191, 232, 255, 0.9);
+}
+
+.supporter-bubble-card .supporter-info {
+    border-color: rgba(37, 99, 235, 0.2);
+}
+
+.supporter-bubble-card .supporter-info span {
+    color: #1d4ed8;
+    background: #e0f2fe;
+}
+
+.supporter-bubble-card .bubble-stamp {
+    position: absolute;
+    top: -2rem;
+    right: 5.65rem;
+    left: 50%;
+    z-index: 4;
+    width: 5rem;
+    height: auto;
+    padding: 0;
+    object-fit: contain;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transform: translateX(-50%) rotate(-2deg);
+    pointer-events: none;
+}
+
+.bubble-deco {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.bubble-deco-one {
+    top: 0.6rem;
+    left: 0.1rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    background: radial-gradient(circle at 35% 28%, #ffffff 0 16%, #9beafe 18% 52%, #38bdf8 100%);
+    box-shadow: 8.1rem 0.25rem 0 -0.16rem #fde68a, 7.15rem 2.55rem 0 -0.2rem #f9a8d4, 1rem 6.85rem 0 -0.28rem #bfdbfe;
+}
+
+.bubble-deco-two {
+    right: 0.6rem;
+    bottom: 4.15rem;
+    width: 0.9rem;
+    height: 0.9rem;
+    background: radial-gradient(circle at 30% 28%, #ffffff 0 15%, #f9a8d4 18% 55%, #fb7185 100%);
+    box-shadow: -7rem -0.6rem 0 -0.2rem #bae6fd, -5.75rem -4.75rem 0 -0.3rem #facc15, -1.15rem -5.85rem 0 -0.28rem #93c5fd;
+}
+
+.bubble-deco-three {
+    top: 3.05rem;
+    left: -0.15rem;
+    width: 0.72rem;
+    height: 0.72rem;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0 18%, #fde68a 20% 58%, #f59e0b 100%);
+    box-shadow: 8.65rem 1.15rem 0 -0.08rem #a7f3d0, 7.8rem 4.65rem 0 -0.1rem #93c5fd, 0.75rem -2.2rem 0 -0.14rem #f9a8d4;
+}
+
+.bubble-deco-four {
+    top: -0.05rem;
+    right: 2.15rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0 18%, #bfdbfe 20% 58%, #60a5fa 100%);
+    box-shadow: -3.2rem 0.4rem 0 -0.16rem #facc15, -5.7rem 2.4rem 0 -0.18rem #bae6fd, 1.1rem 4.4rem 0 -0.14rem #f9a8d4;
+}
+
+.supporter-jipt-card img {
+    border-color: #f3f4f6;
+    background: #f4f4f5;
+    box-shadow: 0 0.9rem 1.8rem rgba(63, 63, 70, 0.16), 0 0 0 0.42rem rgba(229, 231, 235, 0.92);
+}
+
+.supporter-jipt-card .supporter-info {
+    border-color: rgba(82, 82, 91, 0.22);
+}
+
+.supporter-jipt-card .supporter-info span {
+    color: #3f3f46;
+    background: #f4f4f5;
+}
+
+.supporter-jipt-card .jipt-stamp {
+    position: absolute;
+    top: -3rem;
+    right: -2.35rem;
+    z-index: 4;
+    width: 7.75rem;
+    height: auto;
+    padding: 0;
+    object-fit: contain;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transform: rotate(8deg);
+    pointer-events: none;
+}
+
+.supporter-gichanha-card img {
+    border-color: #f7ead5;
+    background: #fdf6e9;
+    box-shadow: 0 0.9rem 1.8rem rgba(120, 53, 15, 0.17), 0 0 0 0.42rem rgba(245, 222, 179, 0.9);
+}
+
+.supporter-gichanha-card .supporter-info {
+    border-color: rgba(146, 64, 14, 0.22);
+}
+
+.supporter-gichanha-card .supporter-info span {
+    color: #7c2d12;
+    background: #fff7ed;
+}
+
+.supporter-gichanha-card .gimuso-stamp {
+    position: absolute;
+    top: -0.95rem;
+    right: 5.65rem;
+    z-index: 4;
+    width: 5.8rem;
+    height: auto;
+    padding: 0;
+    object-fit: contain;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transform: rotate(-7deg);
+    pointer-events: none;
+}
+
 .supporter-info {
     display: flex;
     flex-direction: column;
@@ -12901,6 +13062,54 @@ html {
     line-height: 1.25;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.supporter-card:has(img[src*="bubble_"]) .supporter-info span {
+    color: #1d4ed8;
+    background: #e0f2fe;
+}
+
+.supporter-card:has(img[src*="ramu"]),
+.supporter-card:has(img[src*="monayang"]),
+.supporter-card:has(img[src*="singyou"]),
+.supporter-card:has(img[src*="hanaryun"]),
+.supporter-card:has(img[src*="kimquacar"]),
+.supporter-card:has(img[src*="mokchuri"]),
+.supporter-card:has(img[src*="meru"]),
+.supporter-card:has(img[src*="linco"]),
+.supporter-card:has(img[src*="bungsal"]) {
+    --supporter-office-color: #3f3f46;
+    --supporter-office-bg: #f4f4f5;
+}
+
+.supporter-card:has(img[src*="ramu"]) .supporter-info span,
+.supporter-card:has(img[src*="monayang"]) .supporter-info span,
+.supporter-card:has(img[src*="singyou"]) .supporter-info span,
+.supporter-card:has(img[src*="hanaryun"]) .supporter-info span,
+.supporter-card:has(img[src*="kimquacar"]) .supporter-info span,
+.supporter-card:has(img[src*="mokchuri"]) .supporter-info span,
+.supporter-card:has(img[src*="meru"]) .supporter-info span,
+.supporter-card:has(img[src*="linco"]) .supporter-info span,
+.supporter-card:has(img[src*="bungsal"]) .supporter-info span {
+    color: var(--supporter-office-color);
+    background: var(--supporter-office-bg);
+}
+
+.supporter-card:has(img[src*="yuncimin"]) .supporter-info span,
+.supporter-card:has(img[src*="rancho"]) .supporter-info span,
+.supporter-card:has(img[src*="harui"]) .supporter-info span,
+.supporter-card:has(img[src*="heggume"]) .supporter-info span,
+.supporter-card:has(img[src*="yabbu"]) .supporter-info span,
+.supporter-card:has(img[src*="jjamdoeun"]) .supporter-info span,
+.supporter-card:has(img[src*="hatihati"]) .supporter-info span,
+.supporter-card:has(img[src*="jamyul"]) .supporter-info span,
+.supporter-card:has(img[src*="dansua"]) .supporter-info span,
+.supporter-card:has(img[src*="dinggul"]) .supporter-info span,
+.supporter-card:has(img[src*="yunbora"]) .supporter-info span,
+.supporter-card:has(img[src*="ryuchea"]) .supporter-info span,
+.supporter-card:has(img[src*="jungdani"]) .supporter-info span {
+    color: #7c2d12;
+    background: #fff7ed;
 }
 
 
@@ -13010,6 +13219,25 @@ html {
         align-items: stretch;
     }
 
+    .supporters-featured-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        max-width: 26rem;
+    }
+
+    .supporter-unity-card {
+        order: -1;
+    }
+
+    .supporters-feature-side {
+        justify-content: center;
+    }
+
+    .supporter-feature-spacer {
+        display: none;
+    }
+
     .supporters-track {
         gap: 0.75rem;
     }
@@ -13047,6 +13275,16 @@ html {
         height: 9.35rem;
     }
 
+    .supporter-feature-card {
+        grid-template-rows: 7.65rem auto;
+        width: 9.25rem;
+    }
+
+    .supporter-feature-card img {
+        width: 7.65rem;
+        height: 7.65rem;
+    }
+
     .unity-badge {
         top: 0.62rem;
         left: 0;
@@ -13057,6 +13295,25 @@ html {
         top: -1rem;
         right: -0.05rem;
         font-size: 4rem;
+    }
+
+    .supporter-jipt-card .jipt-stamp {
+        top: -0.85rem;
+        right: -0.1rem;
+        width: 4.75rem;
+    }
+
+    .supporter-gichanha-card .gimuso-stamp {
+        top: -0.72rem;
+        right: -0.2rem;
+        width: 4.65rem;
+    }
+
+    .supporter-bubble-card .bubble-stamp {
+        top: -0.62rem;
+        right: -2.45rem;
+        left: auto;
+        width: 4.35rem;
     }
 }
 
