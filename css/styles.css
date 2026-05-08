@@ -13149,6 +13149,11 @@ html {
     background: #e0f2fe;
 }
 
+.supporter-card:has(img[src*="gorae"]) .supporter-info span {
+    color: #0f766e;
+    background: #ccfbf1;
+}
+
 .supporter-card:has(img[src*="lostacity"]) .supporter-info {
     border-color: rgba(0, 71, 255, 0.24);
 }
