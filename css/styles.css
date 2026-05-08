@@ -12795,12 +12795,12 @@ html {
 
 .supporters-featured-wrap {
     display: grid;
-    grid-template-columns: 10.85rem 10.85rem 12.4rem 10.85rem 10.85rem;
+    grid-template-columns: 10.85rem 10.85rem 10.85rem 12.4rem 10.85rem 10.85rem 10.85rem;
     align-items: flex-end;
     justify-content: center;
     gap: clamp(0.7rem, 1.7vw, 1.15rem);
     margin: 1.35rem auto 1.85rem;
-    max-width: 60rem;
+    max-width: 84rem;
 }
 
 .supporter-card-fixed {
@@ -12896,6 +12896,38 @@ html {
 .supporter-bubble-card .supporter-info span {
     color: #1d4ed8;
     background: #e0f2fe;
+}
+
+.supporter-berin-card img {
+    border-color: #fff1f2;
+    background: #fff1f2;
+    box-shadow: 0 0.9rem 1.8rem rgba(220, 38, 38, 0.16), 0 0 0 0.42rem rgba(254, 226, 226, 0.94);
+}
+
+.supporter-berin-card .supporter-info {
+    border-color: rgba(220, 38, 38, 0.22);
+}
+
+.supporter-berin-card .supporter-info span {
+    color: #b91c1c;
+    background: #fee2e2;
+}
+
+.supporter-berin-card .berin-stamp {
+    position: absolute;
+    top: -1.1rem;
+    right: -0.55rem;
+    z-index: 4;
+    width: 5rem;
+    height: auto;
+    padding: 0;
+    object-fit: contain;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transform: rotate(10deg);
+    pointer-events: none;
 }
 
 .supporter-bubble-card .bubble-stamp {
@@ -13099,6 +13131,11 @@ html {
 .supporter-card:has(img[src*="bubble_"]) .supporter-info span {
     color: #1d4ed8;
     background: #e0f2fe;
+}
+
+.supporter-card:has(img[src*="supporters/berin"]) .supporter-info span {
+    color: #b91c1c;
+    background: #fee2e2;
 }
 
 .supporter-card:has(img[src*="ramu"]),
@@ -13371,6 +13408,12 @@ html {
         right: -2.45rem;
         left: auto;
         width: 4.35rem;
+    }
+
+    .supporter-berin-card .berin-stamp {
+        top: -0.75rem;
+        right: -0.35rem;
+        width: 4.15rem;
     }
 }
 
