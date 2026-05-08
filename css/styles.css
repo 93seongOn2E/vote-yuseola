@@ -12992,6 +12992,38 @@ html {
     pointer-events: none;
 }
 
+.supporter-rokida-card img {
+    border-color: #dbeafe;
+    background: #eff6ff;
+    box-shadow: 0 0.9rem 1.8rem rgba(0, 71, 255, 0.2), 0 0 0 0.42rem rgba(191, 219, 254, 0.92);
+}
+
+.supporter-rokida-card .supporter-info {
+    border-color: rgba(0, 71, 255, 0.24);
+}
+
+.supporter-rokida-card .supporter-info span {
+    color: #ffffff;
+    background: linear-gradient(135deg, #0047ff, #0ea5e9);
+}
+
+.supporter-rokida-card .lostacity-stamp {
+    position: absolute;
+    top: -0.7rem;
+    right: -1.9rem;
+    z-index: 4;
+    width: 6.7rem;
+    height: auto;
+    padding: 0;
+    object-fit: contain;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    filter: drop-shadow(0 0.75rem 0.9rem rgba(0, 71, 255, 0.18));
+    pointer-events: none;
+}
+
 .supporter-gichanha-card img {
     border-color: #f7ead5;
     background: #fdf6e9;
@@ -13115,6 +13147,15 @@ html {
 .supporter-card:has(img[src*="fishman-island"]) .supporter-info span {
     color: #0369a1;
     background: #e0f2fe;
+}
+
+.supporter-card:has(img[src*="lostacity"]) .supporter-info {
+    border-color: rgba(0, 71, 255, 0.24);
+}
+
+.supporter-card:has(img[src*="lostacity"]) .supporter-info span {
+    color: #ffffff;
+    background: linear-gradient(135deg, #0047ff, #0ea5e9);
 }
 
 
@@ -13306,6 +13347,12 @@ html {
         top: -0.85rem;
         right: -0.1rem;
         width: 4.75rem;
+    }
+
+    .supporter-rokida-card .lostacity-stamp {
+        top: -0.45rem;
+        right: -0.35rem;
+        width: 4.9rem;
     }
 
     .supporter-gichanha-card .gimuso-stamp {
