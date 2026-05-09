@@ -12453,6 +12453,55 @@ html {
     z-index: 1;
 }
 
+.campaign-notice-list a.campaign-notice-vote {
+    position: relative;
+    overflow: hidden;
+    color: #052e1d;
+    background: linear-gradient(135deg, #dcfce7 0%, #ffffff 46%, #bbf7d0 100%);
+    border-color: rgba(5, 150, 105, 0.46);
+    box-shadow: 0 0.85rem 1.6rem rgba(5, 150, 105, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.78);
+    font-size: 1.05rem;
+}
+
+.campaign-notice-list a.campaign-notice-vote::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.72) 42%, transparent 72%);
+    transform: translateX(-100%);
+    animation: vote-notice-shine 2.8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.campaign-notice-list a.campaign-notice-vote span,
+.campaign-notice-list a.campaign-notice-vote i {
+    position: relative;
+    z-index: 1;
+}
+
+.campaign-notice-list a.campaign-notice-vote i {
+    color: #047857;
+    font-size: 1.05rem;
+}
+
+.campaign-notice-list a.campaign-notice-vote:hover,
+.campaign-notice-list a.campaign-notice-vote:focus {
+    color: #052e1d;
+    background: linear-gradient(135deg, #bbf7d0 0%, #ffffff 44%, #86efac 100%);
+    border-color: rgba(4, 120, 87, 0.58);
+    transform: translateX(0.2rem) translateY(-0.08rem);
+}
+
+@keyframes vote-notice-shine {
+    0%,
+    58% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
 .campaign-notice-list a:hover,
 .campaign-notice-list a:focus {
     color: #064e3b;
