@@ -12930,6 +12930,38 @@ html {
     pointer-events: none;
 }
 
+.supporter-fishman-card img {
+    border-color: #e0f2fe;
+    background: #f0f9ff;
+    box-shadow: 0 0.9rem 1.8rem rgba(14, 165, 233, 0.18), 0 0 0 0.42rem rgba(186, 230, 253, 0.9);
+}
+
+.supporter-fishman-card .supporter-info {
+    border-color: rgba(14, 165, 233, 0.24);
+}
+
+.supporter-fishman-card .supporter-info span {
+    color: #0369a1;
+    background: #e0f2fe;
+}
+
+.supporter-fishman-card .fishman-stamp {
+    position: absolute;
+    top: -0.95rem;
+    right: -0.55rem;
+    z-index: 4;
+    width: 5.25rem;
+    height: auto;
+    padding: 0;
+    object-fit: contain;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transform: rotate(8deg);
+    pointer-events: none;
+}
+
 .supporter-bubble-card .bubble-stamp {
     position: absolute;
     top: -2rem;
@@ -13414,6 +13446,12 @@ html {
         top: -0.75rem;
         right: -0.35rem;
         width: 4.15rem;
+    }
+
+    .supporter-fishman-card .fishman-stamp {
+        top: -0.65rem;
+        right: -0.35rem;
+        width: 4.25rem;
     }
 }
 
